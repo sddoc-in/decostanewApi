@@ -232,23 +232,24 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
     pageData = {"forward_cursor": forward_cursor, "backward_cursor": backward_cursor, "collation_token": collation_token, "totalAdcount": totalAdcount}
     Adresult = []
     for ads in data['payload']['results']:
+        
         for ad in ads:
-            adArchiveID = ads["adArchiveID"]
-            pageID = ads["pageID"]
-            start_date = ads["startDate"]
-            end_date = ads["endDate"]
+            adArchiveID = ad["adArchiveID"]
+            pageID = ad["pageID"]
+            start_date = ad["startDate"]
+            end_date = ad["endDate"]
             numberOfActiveDay = (end_date - start_date)//86400
             start_date = await epoch_to_timestamp(start_date)
             end_date = await epoch_to_timestamp(end_date)
             if filtterStart_date <= start_date <= filtterEnd_date or filtterStart_date <= end_date <= filtterEnd_date:
-                isActive = ads["isActive"]
-                pageName = ads["pageName"]
-                currentpageLike = ads["snapshot"]["page_like_count"]
-                pageProfileUrl = ads["snapshot"]["page_profile_uri"]
-                adcreativeId = ads["snapshot"]["ad_creative_id"]
-                CallToActionButton = ads["snapshot"]["cta_text"]
-                linkUrl = ads["snapshot"]["link_url"]
-                description = ads["snapshot"]["body"]['markup']['__html']
+                isActive = ad["isActive"]
+                pageName = ad["pageName"]
+                currentpageLike = ad["snapshot"]["page_like_count"]
+                pageProfileUrl = ad["snapshot"]["page_profile_uri"]
+                adcreativeId = ad["snapshot"]["ad_creative_id"]
+                CallToActionButton = ad["snapshot"]["cta_text"]
+                linkUrl = ad["snapshot"]["link_url"]
+                description = ad["snapshot"]["body"]['markup']['__html']
                 adUrl = f"https://www.facebook.com/ads/library/?id={adArchiveID}"
                 adsdata =await viewad(session, adArchiveID, pageID, countary)
                 totalreach = adsdata['data']['ad_library_main']['ad_details']['aaa_info']['eu_total_reach']
@@ -260,8 +261,8 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
 
 
 @app.get("/ads", response_class=JSONResponse)
-async def read_item(country:str = Querry(...,"choos countary"), page: int = Query(..., description="Minimum page number"), querry: str = Query(..., description="Querry"), filtterStart_date: datetime = Query(None), filtterEnd_date: datetime = Query(None), Nextforward_cursor: str = Query(None), Nextbackward_cursor: str = Query(None), Nextcollation_token: str = Query(None)):
-    async with aiohttp.ClientSession() as session:
+async def read_item(country:str = Query(...), page: int = Query(..., description="Minimum page number"), querry: str = Query(..., description="Querry"), filtterStart_date: datetime = Query(None), filtterEnd_date: datetime = Query(None), Nextforward_cursor: str = Query(None), Nextbackward_cursor: str = Query(None), Nextcollation_token: str = Query(None)):
+    async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
         data = await getPageAds(session,page, country , querry, filtterStart_date,  filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token)
         return data
     
