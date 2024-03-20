@@ -8,6 +8,8 @@ import aiohttp , asyncio, json
 app = FastAPI()
 
 origins = [
+    "https://facebookads.vercel.app",
+    "https://facebookads.vercel.app/",
     "https://ui.sddoc.in",
     "https://ui.sddoc.in/",
     "http://localhost:3000",
@@ -241,6 +243,7 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
             numberOfActiveDay = (end_date - start_date)//86400
             start_date = await epoch_to_timestamp(start_date)
             end_date = await epoch_to_timestamp(end_date)
+        
             if filtterStart_date <= start_date <= filtterEnd_date or filtterStart_date <= end_date <= filtterEnd_date:
                 isActive = ad["isActive"]
                 pageName = ad["pageName"]
@@ -252,6 +255,7 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
                 description = ad["snapshot"]["body"]['markup']['__html']
                 adUrl = f"https://www.facebook.com/ads/library/?id={adArchiveID}"
                 adsdata =await viewad(session, adArchiveID, pageID, countary)
+                print(adsdata['data']['ad_library_main']['ad_details']['aaa_info'])
                 totalreach = adsdata['data']['ad_library_main']['ad_details']['aaa_info']['eu_total_reach']
                 dataDict ={"pageName": pageName, "currentpageLike": currentpageLike, "pageProfileUrl": pageProfileUrl, 'description' : description ,"adcreativeId": adcreativeId,'adArchiveID' : adArchiveID , 'pageId': pageID, "CallToActionButton": CallToActionButton, "linkUrl": linkUrl, "adUrl": adUrl, "isActive": isActive,'TotalReach': totalreach ,"start_date": start_date, "end_date": end_date, "numberOfActiveDay": numberOfActiveDay}
                 Adresult.append(dataDict)
