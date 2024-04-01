@@ -2,6 +2,3 @@ fastapi
 aiohttp
 asyncio
 uvicorn
-selenium
-selenium-wire
-packaging
