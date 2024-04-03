@@ -241,7 +241,7 @@ async def viewad(session, adArchiveID, pageID, countary):
 
 async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEnd_date,Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages , publisher_platforms):
     data = await searchAds(session, page,countary ,querry, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, filtterEnd_date, filtterEnd_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms)
-    print(data)
+    # print(data)
     forward_cursor = data['payload']['forwardCursor']
     backward_cursor = data['payload']['backwardCursor']
     collation_token = data['payload']['collationToken']
