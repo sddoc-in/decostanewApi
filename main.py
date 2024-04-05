@@ -30,23 +30,22 @@ async def fetch(session, url, headers=None, cookies=None, data=None):
 
 
 async def searchAds(session, page, countary,querry, forward_cursor, backward_cursor, collation_token, start_date , end_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms) :
-    session_id = 'f1880129-2fbe-4aa3-b90f-5245f540fee7'
+    session_id = '518b822e-5d4d-4686-aaa1-b689c1f40abc'
     cookies = {
-          'wd': '1467x524',
-            'c_user': '100077032827932',
-            'fr': '1LAKvnI4Ffm6VvULz.AWXirhJktamRGh3irqBPnpKm5Nw.BmDXaQ..AAA.0.0.BmDXaQ.AWW7vezLG3Q',
-            'xs': '1%3A4sihRnxP-i1adQ%3A2%3A1711718431%3A-1%3A-1%3A%3AAcVgoB8fX5joKUkaqPgKYLkgH7Klf8sskmIRyu5ToA',
-            'usida': 'eyJ2ZXIiOjEsImlkIjoiQXNiZDFzbXlmOHkxNCIsInRpbWUiOjE3MTIxMzc5MzB9',
-            'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1712137441538%2C%22v%22%3A1%7D',
-            'sb': 'fMb5ZeOdkMH3vrgtLFC2fAxx',
-            'locale': 'en_GB',
-            'dpr': '2',
-            'ps_l': '0',
-            'ps_n': '0',
-            'datr': 'ZY32ZYVf1hlBh3gAthGa1xZX',
+           'wd': '1467x343',
+    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1712348934940%2C%22v%22%3A1%7D',
+    'c_user': '100077032827932',
+    'fr': '1XdWhk8h2Um3sXFkW.AWW5687pLrKamkRT4_DsPqu_C7U.BmEFWT..AAA.0.0.BmEF8D.AWUqrP1iMME',
+    'sb': 'fMb5ZeOdkMH3vrgtLFC2fAxx',
+    'xs': '50%3Al2RScyEPNT3PKA%3A2%3A1712348928%3A-1%3A-1',
+    'datr': '3l0QZp40Kmki9hqKpYpH2eX7',
+    'locale': 'en_GB',
+    'dpr': '2',
+    'ps_l': '0',
+    'ps_n': '0', 
     }
     headers = {
-       'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/x-www-form-urlencoded',
     'Accept': '*/*',
     'Sec-Fetch-Site': 'same-origin',
     'Accept-Language': 'en-IN,en-GB;q=0.9,en;q=0.8',
@@ -55,12 +54,12 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
     'Host': 'www.facebook.com',
     'Origin': 'https://www.facebook.com',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15',
-    'Referer': 'https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=NL&q=t-shirt&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered&media_type=all',
+    'Referer': 'https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=NL&q=t%20shirts&publisher_platforms[0]=messenger&start_date[min]=&start_date[max]=&search_type=keyword_unordered&media_type=image&content_languages[0]=en',
     # 'Content-Length': '590',
     'Connection': 'keep-alive',
     'Sec-Fetch-Dest': 'empty',
-    # 'Cookie': 'wd=1467x524; c_user=100077032827932; fr=1LAKvnI4Ffm6VvULz.AWXirhJktamRGh3irqBPnpKm5Nw.BmDXaQ..AAA.0.0.BmDXaQ.AWW7vezLG3Q; xs=1%3A4sihRnxP-i1adQ%3A2%3A1711718431%3A-1%3A-1%3A%3AAcVgoB8fX5joKUkaqPgKYLkgH7Klf8sskmIRyu5ToA; usida=eyJ2ZXIiOjEsImlkIjoiQXNiZDFzbXlmOHkxNCIsInRpbWUiOjE3MTIxMzc5MzB9; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1712137441538%2C%22v%22%3A1%7D; sb=fMb5ZeOdkMH3vrgtLFC2fAxx; locale=en_GB; dpr=2; ps_l=0; ps_n=0; datr=ZY32ZYVf1hlBh3gAthGa1xZX',
-    'X-FB-LSD': 'gdfmKuMECjEnFvvnObjWxq',
+    # 'Cookie': 'wd=1467x343; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1712348934940%2C%22v%22%3A1%7D; c_user=100077032827932; fr=1XdWhk8h2Um3sXFkW.AWW5687pLrKamkRT4_DsPqu_C7U.BmEFWT..AAA.0.0.BmEF8D.AWUqrP1iMME; sb=fMb5ZeOdkMH3vrgtLFC2fAxx; xs=50%3Al2RScyEPNT3PKA%3A2%3A1712348928%3A-1%3A-1; datr=3l0QZp40Kmki9hqKpYpH2eX7; locale=en_GB; dpr=2; ps_l=0; ps_n=0',
+    'X-FB-LSD': 'iHcGEe8KgEJhp2mvJN5CSL',
     'X-ASBD-ID': '129477',
 
     }
@@ -69,28 +68,28 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
        '__aaid': '0',
     '__user': '100077032827932',
     '__a': '1',
-    '__req': '10',
-    '__hs': '19816.BP:DEFAULT.2.0..0.0',
+    '__req': 'l',
+    '__hs': '19818.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
     '__ccg': 'EXCELLENT',
-    '__rev': '1012508402',
-    '__s': '1jbx7o:jfokgv:wjosn6',
-    '__hsi': '7353668668004220036',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egze2a5E5afK1LwPxe3C0D8sKUbobEaUiyE725U4q0HUkyE1bobodEGdw46wbLwrU6C2-0z85C1Iwqo1187i',
+    '__rev': '1012572464',
+    '__s': 'kyn7uv:uxq3ei:ehos3b',
+    '__hsi': '7354482830121670606',
+    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt8',
     '__csr': '',
-    'fb_dtsg': 'NAcPiUcM5V7ND-mpAmU4BB8FtywhCXXOIi4tvUa5f9hCvxnFbta-FFQ:1:1711718431',
-    'jazoest': '25348',
-    'lsd': 'gdfmKuMECjEnFvvnObjWxq',
-    '__spin_r': '1012508402',
+    'fb_dtsg': 'NAcOWgA0KqRBaqQq3B2-BSnU0DizZgeKUZ1MwoQVM3d8ZdG8O7w-Abg:50:1712348928',
+    'jazoest': '25237',
+    'lsd': 'iHcGEe8KgEJhp2mvJN5CSL',
+    '__spin_r': '1012572464',
     '__spin_b': 'trunk',
-    '__spin_t': '1712159408',
+    '__spin_t': '1712348971',
     '__jssesw': '1',
     }
     
     if page == 1:
         # url =    f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&session_id=15b5fb0b-2d87-4f6c-93a9-d56031103033&count=30&active_status=all&ad_type=all&countries[0]={countary}&media_type=all&search_type=keyword_unordered'
 
-        url = rf'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&verify=3edca362&session_id={session_id}&count=30&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&publisher_platforms[0]={publisher_platforms}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&search_type=keyword_unordered'
+        url = rf'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&session_id={session_id}&count=30&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&publisher_platforms[0]={publisher_platforms}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&search_type=keyword_unordered'
 
 
         response = await fetch(session,  url, headers=headers, cookies=cookies, data=data)
@@ -103,41 +102,43 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
     else:
         
         cookies = {
-          'datr': 'A_75ZXVRLwPOHZCoh5VoaAOp',
+           'wd': '1467x343',
+    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1712348934940%2C%22v%22%3A1%7D',
+    'c_user': '100077032827932',
+    'fr': '1XdWhk8h2Um3sXFkW.AWW5687pLrKamkRT4_DsPqu_C7U.BmEFWT..AAA.0.0.BmEF8D.AWUqrP1iMME',
+    'sb': 'fMb5ZeOdkMH3vrgtLFC2fAxx',
+    'xs': '50%3Al2RScyEPNT3PKA%3A2%3A1712348928%3A-1%3A-1',
+    'datr': '3l0QZp40Kmki9hqKpYpH2eX7',
+    'locale': 'en_GB',
+    'dpr': '2',
     'ps_l': '0',
     'ps_n': '0',
-    'fr': '0mJw0jQtGWqhsahy3..BmDauY..AAA.0.0.BmDauY.AWWn1zRCiUI',
-    'sb': 'mKsNZtLOeCo5ltTbXTwlBhxv',
-    'wd': '1470x546',
-    'dpr': '2',
-    'c_user': '100077032827932',
-    'fr': '1IRJLFY2IhUXCO0yS.AWUdwq7M2LIOpDuslZHwN-GDo00.BmCDFW..AAA.0.0.BmCDFW.AWW6JVA7DdI',
-    'xs': '1%3A4sihRnxP-i1adQ%3A2%3A1711718431%3A-1%3A-1%3A%3AAcU5h62oYIDTtaFNfGTwILANQ6sItN_XuHnCUqJ-UQ',
         }
         
         data = {
-                '__aaid': '0',
-    '__user': '0',
+             '__aaid': '0',
+    '__user': '100077032827932',
     '__a': '1',
-    '__req': '1d',
-    '__hs': '19817.BP:DEFAULT.2.0..0.0',
+    '__req': '1b',
+    '__hs': '19818.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
-    '__ccg': 'GOOD',
-    '__rev': '1012541076',
-    '__s': 't7kym2:ymxuk3:s7mz1g',
-    '__hsi': '7354119458630034561',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egze2a5E5afK1LwPxe3C0D8sKUbobEaUiyE725U4q0HUkyE1bobodEGdw46wbLwrU6C2-0z85C1Iwqo1187i',
+    '__ccg': 'EXCELLENT',
+    '__rev': '1012572464',
+    '__s': 'n2yona:uxq3ei:ehos3b',
+    '__hsi': '7354482830121670606',
+    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt8',
     '__csr': '',
-    'lsd': 'AVrB2IF8koQ',
-    'jazoest': '2879',
-    '__spin_r': '1012541076',
+    'fb_dtsg': 'NAcOWgA0KqRBaqQq3B2-BSnU0DizZgeKUZ1MwoQVM3d8ZdG8O7w-Abg:50:1712348928',
+    'jazoest': '25237',
+    'lsd': 'iHcGEe8KgEJhp2mvJN5CSL',
+    '__spin_r': '1012572464',
     '__spin_b': 'trunk',
-    '__spin_t': '1712264367',
+    '__spin_t': '1712348971',
     '__jssesw': '1',
          }
 
         # url = f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&forward_cursor={forward_cursor}&{backward_cursor}=&session_id={session_id}&collation_token={collation_token}&count=30&active_status=all&ad_type=all&countries[0]={countary}&media_type=all&search_type=keyword_unordered'
-        url = f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&verify=3edca362&forward_cursor={forward_cursor}&backward_cursor={backward_cursor}&session_id={session_id}&collation_token={collation_token}&count=30&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered'
+        url = f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&forward_cursor={forward_cursor}&backward_cursor={backward_cursor}&session_id={session_id}&collation_token={collation_token}&count=30&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered'
         
         
         response = await fetch(session, url, headers=headers,cookies=cookies, data=data)
@@ -156,45 +157,45 @@ async def epoch_to_timestamp(epoch_time):
 
 async def viewad(session, adArchiveID, pageID, countary):
     cookies = {
-          'datr': 'A_75ZXVRLwPOHZCoh5VoaAOp',
+          'wd': '1467x443',
+    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1712348934940%2C%22v%22%3A1%7D',
+    'c_user': '100077032827932',
+    'fr': '1XdWhk8h2Um3sXFkW.AWW5687pLrKamkRT4_DsPqu_C7U.BmEFWT..AAA.0.0.BmEF8D.AWUqrP1iMME',
+    'sb': 'fMb5ZeOdkMH3vrgtLFC2fAxx',
+    'xs': '50%3Al2RScyEPNT3PKA%3A2%3A1712348928%3A-1%3A-1',
+    'datr': '3l0QZp40Kmki9hqKpYpH2eX7',
+    'locale': 'en_GB',
+    'dpr': '2',
     'ps_l': '0',
     'ps_n': '0',
-    'fr': '0mJw0jQtGWqhsahy3..BmDauY..AAA.0.0.BmDauY.AWWn1zRCiUI',
-    'sb': 'mKsNZtLOeCo5ltTbXTwlBhxv',
-    'wd': '1470x546',
-    'dpr': '2',
-    'c_user': '100077032827932',
-    'fr': '1IRJLFY2IhUXCO0yS.AWUdwq7M2LIOpDuslZHwN-GDo00.BmCDFW..AAA.0.0.BmCDFW.AWW6JVA7DdI',
-    'xs': '1%3A4sihRnxP-i1adQ%3A2%3A1711718431%3A-1%3A-1%3A%3AAcU5h62oYIDTtaFNfGTwILANQ6sItN_XuHnCUqJ-UQ',
     }
 
 
     headers = {
-       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:124.0) Gecko/20100101 Firefox/124.0',
+      'Content-Type': 'application/x-www-form-urlencoded',
     'Accept': '*/*',
-    'Accept-Language': 'en-US,en;q=0.5',
-    # 'Accept-Encoding': 'gzip, deflate, br',
-    'Referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=tshirts&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered&media_type=all',
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'X-FB-Friendly-Name': 'AdLibraryAdDetailsV2Query',
-    'X-FB-LSD': 'AVrB2IF8koQ',
-    'X-ASBD-ID': '129477',
-    'Origin': 'https://www.facebook.com',
-    'Connection': 'keep-alive',
-    # 'Cookie': 'datr=A_75ZXVRLwPOHZCoh5VoaAOp; ps_l=0; ps_n=0; fr=0mJw0jQtGWqhsahy3..BmDauY..AAA.0.0.BmDauY.AWWn1zRCiUI; sb=mKsNZtLOeCo5ltTbXTwlBhxv; wd=1470x546; dpr=2; c_user=100077032827932; fr=1IRJLFY2IhUXCO0yS.AWUdwq7M2LIOpDuslZHwN-GDo00.BmCDFW..AAA.0.0.BmCDFW.AWW6JVA7DdI; xs=1%3A4sihRnxP-i1adQ%3A2%3A1711718431%3A-1%3A-1%3A%3AAcU5h62oYIDTtaFNfGTwILANQ6sItN_XuHnCUqJ-UQ',
-    'Sec-Fetch-Dest': 'empty',
-    'Sec-Fetch-Mode': 'cors',
     'Sec-Fetch-Site': 'same-origin',
-    # Requests doesn't support trailers
-    # 'TE': 'trailers',
-
+    'Accept-Language': 'en-IN,en-GB;q=0.9,en;q=0.8',
+    # 'Accept-Encoding': 'gzip, deflate, br',
+    'Sec-Fetch-Mode': 'cors',
+    'Host': 'www.facebook.com',
+    'Origin': 'https://www.facebook.com',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15',
+    'Referer': 'https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=NL&q=t%20shirts&publisher_platforms[0]=messenger&start_date[min]=&start_date[max]=&search_type=keyword_unordered&media_type=image&content_languages[0]=en',
+    # 'Content-Length': '1016',
+    'Connection': 'keep-alive',
+    'Sec-Fetch-Dest': 'empty',
+    # 'Cookie': 'wd=1467x443; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1712348934940%2C%22v%22%3A1%7D; c_user=100077032827932; fr=1XdWhk8h2Um3sXFkW.AWW5687pLrKamkRT4_DsPqu_C7U.BmEFWT..AAA.0.0.BmEF8D.AWUqrP1iMME; sb=fMb5ZeOdkMH3vrgtLFC2fAxx; xs=50%3Al2RScyEPNT3PKA%3A2%3A1712348928%3A-1%3A-1; datr=3l0QZp40Kmki9hqKpYpH2eX7; locale=en_GB; dpr=2; ps_l=0; ps_n=0',
+    'X-FB-LSD': 'iHcGEe8KgEJhp2mvJN5CSL',
+    'X-ASBD-ID': '129477',
+    'X-FB-Friendly-Name': 'AdLibraryAdDetailsV2Query',
     }
     
     variables = {
         "adArchiveID": adArchiveID,
         "pageID": pageID,
         "country": countary,
-        "sessionID": "f1880129-2fbe-4aa3-b90f-5245f540fee7",
+        "sessionID": "518b822e-5d4d-4686-aaa1-b689c1f40abc",
         "source": None,
         "isAdNonPolitical": True,
         "isAdNotAAAEligible": False,
@@ -203,24 +204,25 @@ async def viewad(session, adArchiveID, pageID, countary):
     # Convert variables to JSON string
     variables_json = json.dumps(variables)
     data = {
-      'av': '0',
+     'av': '100077032827932',
     '__aaid': '0',
-    '__user': '0',
+    '__user': '100077032827932',
     '__a': '1',
-    '__req': '1q',
-    '__hs': '19817.BP:DEFAULT.2.0..0.0',
+    '__req': '1e',
+    '__hs': '19818.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
-    '__ccg': 'GOOD',
-    '__rev': '1012541076',
-    '__s': 'vh6bq4:ymxuk3:s7mz1g',
-    '__hsi': '7354119458630034561',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egze2a5E5afK1LwPxe3C0D8sKUbobEaUiyE725U4q0HUkyE1bobodEGdw46wbLwrU6C2-0z85C1Iwqo1187i',
+    '__ccg': 'EXCELLENT',
+    '__rev': '1012572464',
+    '__s': 'a6fhs5:uxq3ei:ehos3b',
+    '__hsi': '7354482830121670606',
+    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt8',
     '__csr': '',
-    'lsd': 'AVrB2IF8koQ',
-    'jazoest': '2879',
-    '__spin_r': '1012541076',
+    'fb_dtsg': 'NAcOWgA0KqRBaqQq3B2-BSnU0DizZgeKUZ1MwoQVM3d8ZdG8O7w-Abg:50:1712348928',
+    'jazoest': '25237',
+    'lsd': 'iHcGEe8KgEJhp2mvJN5CSL',
+    '__spin_r': '1012572464',
     '__spin_b': 'trunk',
-    '__spin_t': '1712264367',
+    '__spin_t': '1712348971',
     '__jssesw': '1',
     'fb_api_caller_class': 'RelayModern',
     'fb_api_req_friendly_name': 'AdLibraryAdDetailsV2Query',
@@ -231,14 +233,17 @@ async def viewad(session, adArchiveID, pageID, countary):
     }
     response = await fetch(session, 'https://www.facebook.com/api/graphql/', headers=headers, cookies=cookies, data=data)
     # response = requests.post('https://www.facebook.com/api/graphql/', cookies=cookies, headers=headers, data=data)
+    # print(">>>>>>>>>>>>>>>", response)
     return json.loads(response)
 
 
 
 
 async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEnd_date,Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages , publisher_platforms):
-    data = await searchAds(session, page,countary ,querry, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, filtterEnd_date, filtterEnd_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms)
-    print(data)
+    try:
+        data = await searchAds(session, page,countary ,querry, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, filtterEnd_date, filtterEnd_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms)
+    except Exception as e:
+        return {"error": f"Error: {e}"}
     forward_cursor = data['payload']['forwardCursor']
     backward_cursor = data['payload']['backwardCursor']
     collation_token = data['payload']['collationToken']
@@ -286,7 +291,10 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
             except:
                 description = ""
             adUrl = f"https://www.facebook.com/ads/library/?id={adArchiveID}"
-            adsdata =await viewad(session, adArchiveID, pageID, countary)
+            try:
+                adsdata =await viewad(session, adArchiveID, pageID, countary)
+            except Exception as e:
+                adsdata = {"error": f"Error"}
             # print(adsdata['data']['ad_library_main']['ad_details']['aaa_info'])
             try:
                 totalreach = adsdata['data']['ad_library_main']['ad_details']['aaa_info']['eu_total_reach']
