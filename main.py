@@ -30,19 +30,16 @@ async def fetch(session, url, headers=None, cookies=None, data=None):
 
 
 async def searchAds(session, page, countary,querry, forward_cursor, backward_cursor, collation_token, start_date , end_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms) :
-    session_id = 'c27634cc-2d56-4f11-ac74-f933967b424d'
+    session_id = 'd1818556-8b19-499f-9805-420340ce20d1'
     cookies = {
     'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
     'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
-    'dpr': '2',
-    'locale': 'en_GB',
     'ps_n': '1',
     'ps_l': '1',
     'c_user': '100077032827932',
-    'xs': '48%3Ao1TL66iCBAHlOA%3A2%3A1713551109%3A-1%3A-1',
-    'fr': '10AWjNMBihc4rzumj.AWVv5WDFyizplYtb1oiiDd138Yw.BmH5As..AAA.0.0.BmIrcH.AWUBx0I2Dpk',
-    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1713551114627%2C%22v%22%3A1%7D',
-    'wd': '1470x267',
+    'xs': '48%3Ao1TL66iCBAHlOA%3A2%3A1713551109%3A-1%3A-1%3A%3AAcV4_cdPkPeY0JsHZkEGbdPy3LPNocPK_Acr6Mj8xg',
+    'fr': '1yYlDJpk07nObb0qb.AWXlc3NpkO3qnY-fNjMeqmmHvVY.BmJ-Eb..AAA.0.0.BmJ-Eb.AWW95qqGG1c',
+    'wd': '1470x477',
     }
 
 
@@ -50,12 +47,13 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
     'accept': '*/*',
     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
     'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; dpr=2; locale=en_GB; ps_n=1; ps_l=1; c_user=100077032827932; xs=48%3Ao1TL66iCBAHlOA%3A2%3A1713551109%3A-1%3A-1; fr=10AWjNMBihc4rzumj.AWVv5WDFyizplYtb1oiiDd138Yw.BmH5As..AAA.0.0.BmIrcH.AWUBx0I2Dpk; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1713551114627%2C%22v%22%3A1%7D; wd=1470x267',
+    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100077032827932; xs=48%3Ao1TL66iCBAHlOA%3A2%3A1713551109%3A-1%3A-1%3A%3AAcV4_cdPkPeY0JsHZkEGbdPy3LPNocPK_Acr6Mj8xg; fr=1yYlDJpk07nObb0qb.AWXlc3NpkO3qnY-fNjMeqmmHvVY.BmJ-Eb..AAA.0.0.BmJ-Eb.AWW95qqGG1c; wd=1470x477',
     'origin': 'https://www.facebook.com',
-    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=zamzie&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered&media_type=all',
+    'priority': 'u=1, i',
+    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=zamzie&search_type=keyword_unordered&media_type=all',
     'sec-ch-prefers-color-scheme': 'dark',
-    'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
-    'sec-ch-ua-full-version-list': '"Google Chrome";v="123.0.6312.124", "Not:A-Brand";v="8.0.0.0", "Chromium";v="123.0.6312.124"',
+    'sec-ch-ua': '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    'sec-ch-ua-full-version-list': '"Chromium";v="124.0.6367.62", "Google Chrome";v="124.0.6367.62", "Not-A.Brand";v="99.0.0.0"',
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-model': '""',
     'sec-ch-ua-platform': '"macOS"',
@@ -63,38 +61,38 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
     'sec-fetch-dest': 'empty',
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     'x-asbd-id': '129477',
-    'x-fb-lsd': 'tZgPJ7iEtixsNJ2-4lwjpv',
+    'x-fb-lsd': 'gKUga9WXNHY_EloRMM5dDj',
     }
 
     data = {
     '__aaid': '0',
     '__user': '100077032827932',
     '__a': '1',
-    '__req': 'i',
-    '__hs': '19832.BP:DEFAULT.2.0..0.0',
+    '__req': '2',
+    '__hs': '19836.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
-    '__ccg': 'GOOD',
-    '__rev': '1012908546',
-    '__s': '6xdq3s:w1lac9:jaj0w5',
-    '__hsi': '7359646013593146269',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u',
+    '__ccg': 'EXCELLENT',
+    '__rev': '1012980395',
+    '__s': 'ucfh5q:kv4lpf:f3rfdy',
+    '__hsi': '7361099868764616951',
+    '__dyn': '7xe6Eiw_K9zo5ObwKBAgc9o2exu13wqojyUW3qi4EoxW4E7SewXwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBw5Zx62G3i1ywdl0Fw4Hwp8kwyx2cwAxq1yK1LwPxe3C0D8sKUbobEaUiyE725U4q0N8G0iS2S3qazo11E2XU6-1FwLw8O1pwr86C0gi1QwtU',
     '__csr': '',
-    'fb_dtsg': 'NAcMpn6A5OhHL39LhFo4qgSvdec8_san6xiT5yDD337BEf0ZvenFRDA:48:1713551109',
-    'jazoe  st': '25311',
-    'lsd': 'tZgPJ7iEtixsNJ2-4lwjpv',
-    '__spin_r': '1012908546',
+    'fb_dtsg': 'NAcNbXJal4bgIM3Dl0NXZ1UepjJYWrCUtPUDMRjk4yceEemHsXkFdIQ:48:1713551109',
+    'jazoest': '25504',
+    'lsd': 'gKUga9WXNHY_EloRMM5dDj',
+    '__spin_r': '1012980395',
     '__spin_b': 'trunk',
-    '__spin_t': '1713551118',
+    '__spin_t': '1713889620',
     '__jssesw': '1',
     }
 
     
     if page == 1:
-        # url =    f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&session_id={session_id}&count=30&active_status=all&ad_type=all&countries[0]={countary}&media_type=all&search_type=keyword_unordered&&start_date[min]={start_date}&start_date[max]={end_date}&active_status={ad_status_type}'
+        url =    f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&session_id={session_id}&count=30&active_status=all&ad_type=all&countries[0]={countary}&media_type=all&search_type=keyword_unordered'
 
-        url = rf'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&session_id={session_id}&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&publisher_platforms[0]={publisher_platforms}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&search_type=keyword_unordered'
+        # url = rf'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&session_id={session_id}&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&publisher_platforms[0]={publisher_platforms}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&search_type=keyword_unordered'
 
 
         response = await fetch(session,  url, headers=headers, cookies=cookies, data=data)
@@ -108,42 +106,39 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
         
         cookies = {
         'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
-    'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
-    'dpr': '2',
-    'ps_l': '0',
-    'ps_n': '0',
-    'locale': 'en_GB',
-    'c_user': '100077032827932',
-    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1713344303589%2C%22v%22%3A1%7D',
-    'xs': '18%3A61biyTFELW7uBA%3A2%3A1713344297%3A-1%3A-1%3A%3AAcVKGi5OQaLkPyohU7AL8biAV6UHys0zmbvK2YVceg',
-    'fr': '10AWjNMBihc4rzumj.AWX_i3EB76mKjV-1IJnYZbVKfX4.BmH5As..AAA.0.0.BmH5As.AWXQ8aOLsmU',
-    'wd': '1470x358',
+        'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
+        'ps_n': '1',
+        'ps_l': '1',
+        'c_user': '100077032827932',
+        'xs': '48%3Ao1TL66iCBAHlOA%3A2%3A1713551109%3A-1%3A-1%3A%3AAcV4_cdPkPeY0JsHZkEGbdPy3LPNocPK_Acr6Mj8xg',
+        'fr': '1yYlDJpk07nObb0qb.AWXlc3NpkO3qnY-fNjMeqmmHvVY.BmJ-Eb..AAA.0.0.BmJ-Eb.AWW95qqGG1c',
+        'wd': '1470x395',
         }
 
         data = {
-         '__aaid': '0',
-    '__user': '100077032827932',
-    '__a': '1',
-    '__req': 's',
-    '__hs': '19830.BP:DEFAULT.2.0..0.0',
-    'dpr': '2',
-    '__ccg': 'GOOD',
-    '__rev': '1012840629',
-    '__s': '230l51:ps92v0:p9diov',
-    '__hsi': '7358762245774337151',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u',
-    '__csr': '',
-    'fb_dtsg': 'NAcPu-dJ3OCUekkamELt5giN_gWy3IXqODyGbs7OzUYeeIkRd___1_g:18:1713344297',
-    'jazoest': '25612',
-    'lsd': 'N4iwBzlwujNFtluBaayatN',
-    '__spin_r': '1012840629',
-    '__spin_b': 'trunk',
-    '__spin_t': '1713345350',
-    '__jssesw': '1',
+        '__aaid': '0',
+        '__user': '100077032827932',
+        '__a': '1',
+        '__req': 'o',
+        '__hs': '19836.BP:DEFAULT.2.0..0.0',
+        'dpr': '2',
+        '__ccg': 'EXCELLENT',
+        '__rev': '1012980395',
+        '__s': 'sq6s01:kv4lpf:f3rfdy',
+        '__hsi': '7361099868764616951',
+        '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u',
+        '__csr': '',
+        'fb_dtsg': 'NAcNbXJal4bgIM3Dl0NXZ1UepjJYWrCUtPUDMRjk4yceEemHsXkFdIQ:48:1713551109',
+        'jazoest': '25504',
+        'lsd': 'gKUga9WXNHY_EloRMM5dDj',
+        '__spin_r': '1012980395',
+        '__spin_b': 'trunk',
+        '__spin_t': '1713889620',
+        '__jssesw': '1',
         }
 
-        # url = f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&forward_cursor={forward_cursor}&{backward_cursor}=&session_id={session_id}&collation_token={collation_token}&count=30&active_status=all&ad_type=all&countries[0]={countary}&media_type=all&search_type=keyword_unordered'
-        url = f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&verify=21543e81&forward_cursor={forward_cursor}&backward_cursor={backward_cursor}&session_id={session_id}&collation_token={collation_token}&count=30&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered'
+        url = f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&forward_cursor={forward_cursor}&{backward_cursor}=&session_id={session_id}&collation_token={collation_token}&count=30&active_status=all&ad_type=all&countries[0]={countary}&media_type=all&search_type=keyword_unordered'
+        # url = f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&verify=21543e81&forward_cursor={forward_cursor}&backward_cursor={backward_cursor}&session_id={session_id}&collation_token={collation_token}&count=30&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered'
         
         
         response = await fetch(session, url, headers=headers,cookies=cookies, data=data)
@@ -164,27 +159,25 @@ async def viewad(session, adArchiveID, pageID, countary):
     cookies = {
    'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
     'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
-    'dpr': '2',
-    'locale': 'en_GB',
     'ps_n': '1',
     'ps_l': '1',
     'c_user': '100077032827932',
-    'xs': '48%3Ao1TL66iCBAHlOA%3A2%3A1713551109%3A-1%3A-1',
-    'fr': '10AWjNMBihc4rzumj.AWVv5WDFyizplYtb1oiiDd138Yw.BmH5As..AAA.0.0.BmIrcH.AWUBx0I2Dpk',
-    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1713551114627%2C%22v%22%3A1%7D',
-    'wd': '1470x477',
+    'xs': '48%3Ao1TL66iCBAHlOA%3A2%3A1713551109%3A-1%3A-1%3A%3AAcV4_cdPkPeY0JsHZkEGbdPy3LPNocPK_Acr6Mj8xg',
+    'fr': '1yYlDJpk07nObb0qb.AWXlc3NpkO3qnY-fNjMeqmmHvVY.BmJ-Eb..AAA.0.0.BmJ-Eb.AWW95qqGG1c',
+    'wd': '1470x395',
     }
 
     headers = {
-      'accept': '*/*',
+     'accept': '*/*',
     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
     'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; dpr=2; locale=en_GB; ps_n=1; ps_l=1; c_user=100077032827932; xs=48%3Ao1TL66iCBAHlOA%3A2%3A1713551109%3A-1%3A-1; fr=10AWjNMBihc4rzumj.AWVv5WDFyizplYtb1oiiDd138Yw.BmH5As..AAA.0.0.BmIrcH.AWUBx0I2Dpk; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1713551114627%2C%22v%22%3A1%7D; wd=1470x477',
+    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100077032827932; xs=48%3Ao1TL66iCBAHlOA%3A2%3A1713551109%3A-1%3A-1%3A%3AAcV4_cdPkPeY0JsHZkEGbdPy3LPNocPK_Acr6Mj8xg; fr=1yYlDJpk07nObb0qb.AWXlc3NpkO3qnY-fNjMeqmmHvVY.BmJ-Eb..AAA.0.0.BmJ-Eb.AWW95qqGG1c; wd=1470x395',
     'origin': 'https://www.facebook.com',
-    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=zamzie&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered&media_type=all',
+    'priority': 'u=1, i',
+    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=zamzie&search_type=keyword_unordered&media_type=all',
     'sec-ch-prefers-color-scheme': 'dark',
-    'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
-    'sec-ch-ua-full-version-list': '"Google Chrome";v="123.0.6312.124", "Not:A-Brand";v="8.0.0.0", "Chromium";v="123.0.6312.124"',
+    'sec-ch-ua': '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    'sec-ch-ua-full-version-list': '"Chromium";v="124.0.6367.62", "Google Chrome";v="124.0.6367.62", "Not-A.Brand";v="99.0.0.0"',
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-model': '""',
     'sec-ch-ua-platform': '"macOS"',
@@ -192,17 +185,17 @@ async def viewad(session, adArchiveID, pageID, countary):
     'sec-fetch-dest': 'empty',
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     'x-asbd-id': '129477',
     'x-fb-friendly-name': 'AdLibraryAdDetailsV2Query',
-    'x-fb-lsd': 'tZgPJ7iEtixsNJ2-4lwjpv',
+    'x-fb-lsd': 'gKUga9WXNHY_EloRMM5dDj',
     }
     
     variables = {
         "adArchiveID": adArchiveID,
         "pageID": pageID,
         "country": countary,
-        "sessionID": "c27634cc-2d56-4f11-ac74-f933967b424d",
+        "sessionID": "d1818556-8b19-499f-9805-420340ce20d1",
         "source": None,
         "isAdNonPolitical": True,
         "isAdNotAAAEligible": False,
@@ -215,21 +208,21 @@ async def viewad(session, adArchiveID, pageID, countary):
     '__aaid': '0',
     '__user': '100077032827932',
     '__a': '1',
-    '__req': '15',
-    '__hs': '19832.BP:DEFAULT.2.0..0.0',
+    '__req': 's',
+    '__hs': '19836.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
-    '__ccg': 'GOOD',
-    '__rev': '1012908546',
-    '__s': 'bknbmt:w1lac9:jaj0w5',
-    '__hsi': '7359646013593146269',
+    '__ccg': 'EXCELLENT',
+    '__rev': '1012980395',
+    '__s': 'so2j0b:kv4lpf:f3rfdy',
+    '__hsi': '7361099868764616951',
     '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u',
     '__csr': '',
-    'fb_dtsg': 'NAcMpn6A5OhHL39LhFo4qgSvdec8_san6xiT5yDD337BEf0ZvenFRDA:48:1713551109',
-    'jazoest': '25311',
-    'lsd': 'tZgPJ7iEtixsNJ2-4lwjpv',
-    '__spin_r': '1012908546',
+    'fb_dtsg': 'NAcNbXJal4bgIM3Dl0NXZ1UepjJYWrCUtPUDMRjk4yceEemHsXkFdIQ:48:1713551109',
+    'jazoest': '25504',
+    'lsd': 'gKUga9WXNHY_EloRMM5dDj',
+    '__spin_r': '1012980395',
     '__spin_b': 'trunk',
-    '__spin_t': '1713551118',
+    '__spin_t': '1713889620',
     '__jssesw': '1',
     'fb_api_caller_class': 'RelayModern',
     'fb_api_req_friendly_name': 'AdLibraryAdDetailsV2Query',
