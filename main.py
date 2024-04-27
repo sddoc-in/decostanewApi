@@ -266,57 +266,57 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
             end_date = await epoch_to_timestamp(end_date)
         
             if filtterStart_date <= start_date <= filtterEnd_date or filtterStart_date <= end_date <= filtterEnd_date:
-                # tempActive = False
-                # print(ad["isActive"])
-                # if ad_status_type == 'active' and ad["isActive"] == True:
-                #     tempActive = True
-                # elif ad_status_type == 'inactive' and ad["isActive"] == False:
-                #     tempActive = True
-                # elif ad_status_type == 'all':
-                #     tempActive = True
-                # if tempActive == False:
-                #     continue
-                # if tempActive:
-                isActive = ad["isActive"]
-                pageName = ad["pageName"]
-                # currentpageLike = 0
-                try:
-                    currentpageLike = ad["snapshot"]["page_like_count"]
-                except:
-                    currentpageLike = 0
+                tempActive = False
+                print(ad["isActive"])
+                if ad_status_type == 'active' and ad["isActive"] == True:
+                    tempActive = True
+                elif ad_status_type == 'inactive' and ad["isActive"] == False:
+                    tempActive = True
+                elif ad_status_type == 'all':
+                    tempActive = True
+                if tempActive == False:
+                    continue
+                if tempActive:
+                    isActive = ad["isActive"]
+                    pageName = ad["pageName"]
                     # currentpageLike = 0
-                try:
-                    pageProfileUrl = ad["snapshot"]["page_profile_uri"]
-                except:
-                    pageProfileUrl = ""
-                try:
-                    adcreativeId = ad["snapshot"]["ad_creative_id"]
-                except:
-                    adcreativeId = ""
-                try:
-                    CallToActionButton = ad["snapshot"]["cta_text"]
-                except:
-                    CallToActionButton = ""
-                try:
-                    linkUrl = ad["snapshot"]["link_url"]
-                except:
-                    linkUrl = ""
-                try:
-                    description = ad["snapshot"]["body"]['markup']['__html']
-                except:
-                    description = ""
-                adUrl = f"https://www.facebook.com/ads/library/?id={adArchiveID}"
-                try:
-                    adsdata =await viewad(session, adArchiveID, pageID, countary)
-                except Exception as e:
-                    adsdata = {"error": f"Error"}
-                # print(adsdata['data']['ad_library_main']['ad_details']['aaa_info'])
-                try:
-                    totalreach = adsdata['data']['ad_library_main']['ad_details']['aaa_info']['eu_total_reach']
-                except:
-                    totalreach = 0
-                dataDict ={"pageName": pageName, "currentpageLike": currentpageLike, "pageProfileUrl": pageProfileUrl, 'description' : description ,"adcreativeId": adcreativeId,'adArchiveID' : adArchiveID , 'pageId': pageID, "CallToActionButton": CallToActionButton, "linkUrl": linkUrl, "adUrl": adUrl, "isActive": isActive,'TotalReach': totalreach ,"start_date": start_date, "end_date": end_date, "numberOfActiveDay": numberOfActiveDay}
-                Adresult.append(dataDict)
+                    try:
+                        currentpageLike = ad["snapshot"]["page_like_count"]
+                    except:
+                        currentpageLike = 0
+                        # currentpageLike = 0
+                    try:
+                        pageProfileUrl = ad["snapshot"]["page_profile_uri"]
+                    except:
+                        pageProfileUrl = ""
+                    try:
+                        adcreativeId = ad["snapshot"]["ad_creative_id"]
+                    except:
+                        adcreativeId = ""
+                    try:
+                        CallToActionButton = ad["snapshot"]["cta_text"]
+                    except:
+                        CallToActionButton = ""
+                    try:
+                        linkUrl = ad["snapshot"]["link_url"]
+                    except:
+                        linkUrl = ""
+                    try:
+                        description = ad["snapshot"]["body"]['markup']['__html']
+                    except:
+                        description = ""
+                    adUrl = f"https://www.facebook.com/ads/library/?id={adArchiveID}"
+                    try:
+                        adsdata =await viewad(session, adArchiveID, pageID, countary)
+                    except Exception as e:
+                        adsdata = {"error": f"Error"}
+                    # print(adsdata['data']['ad_library_main']['ad_details']['aaa_info'])
+                    try:
+                        totalreach = adsdata['data']['ad_library_main']['ad_details']['aaa_info']['eu_total_reach']
+                    except:
+                        totalreach = 0
+                    dataDict ={"pageName": pageName, "currentpageLike": currentpageLike, "pageProfileUrl": pageProfileUrl, 'description' : description ,"adcreativeId": adcreativeId,'adArchiveID' : adArchiveID , 'pageId': pageID, "CallToActionButton": CallToActionButton, "linkUrl": linkUrl, "adUrl": adUrl, "isActive": isActive,'TotalReach': totalreach ,"start_date": start_date, "end_date": end_date, "numberOfActiveDay": numberOfActiveDay}
+                    Adresult.append(dataDict)
   
     return {'results': Adresult, 'pageData': pageData}
 
