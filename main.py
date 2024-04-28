@@ -30,29 +30,28 @@ async def fetch(session, url, headers=None, cookies=None, data=None):
 
 
 async def searchAds(session, page, countary,querry, forward_cursor, backward_cursor, collation_token, start_date , end_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms) :
-    session_id = '670269bb-5f46-4a2d-9c5a-168776f63ae3'
+    session_id = '516f2359-cba7-4ba9-8f18-8481e9554862'
     cookies = {
    'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
     'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
     'ps_n': '1',
     'ps_l': '1',
-    'wd': '1470x395',
     'c_user': '100077032827932',
-    'xs': '37%3AC9Dlt2xH40rUHw%3A2%3A1714213320%3A-1%3A-1',
-    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1714213325019%2C%22v%22%3A1%7D',
-    'fr': '1gVkqCvuC2AME8i12.AWVsomyZ62wFZRdLKlL7UKxBvtE.BmKi9o..AAA.0.0.BmLNHb.AWXtOZVk1sM',
+    'xs': '37%3AC9Dlt2xH40rUHw%3A2%3A1714213320%3A-1%3A-1%3A%3AAcVcx-exSVoJLYSO8DJsN8GYQzkDX-zQE3hJgqG25Q',
+    'fr': '11ZpDFjtHw4AukgUO.AWXu3H4zNbibveOIWd_J4Ox5MLE.BmLmlm..AAA.0.0.BmLmlm.AWUBSRME4us',
+    'wd': '1470x395',
 
     }
 
 
     headers = {
-      'accept': '*/*',
+     'accept': '*/*',
     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
     'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; wd=1470x395; c_user=100077032827932; xs=37%3AC9Dlt2xH40rUHw%3A2%3A1714213320%3A-1%3A-1; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1714213325019%2C%22v%22%3A1%7D; fr=1gVkqCvuC2AME8i12.AWVsomyZ62wFZRdLKlL7UKxBvtE.BmKi9o..AAA.0.0.BmLNHb.AWXtOZVk1sM',
+    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100077032827932; xs=37%3AC9Dlt2xH40rUHw%3A2%3A1714213320%3A-1%3A-1%3A%3AAcVcx-exSVoJLYSO8DJsN8GYQzkDX-zQE3hJgqG25Q; fr=11ZpDFjtHw4AukgUO.AWXu3H4zNbibveOIWd_J4Ox5MLE.BmLmlm..AAA.0.0.BmLmlm.AWUBSRME4us; wd=1470x395',
     'origin': 'https://www.facebook.com',
     'priority': 'u=1, i',
-    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=Car&search_type=keyword_unordered&media_type=all',
+    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=zamzie&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered&media_type=all',
     'sec-ch-prefers-color-scheme': 'dark',
     'sec-ch-ua': '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
     'sec-ch-ua-full-version-list': '"Chromium";v="124.0.6367.92", "Google Chrome";v="124.0.6367.92", "Not-A.Brand";v="99.0.0.0"',
@@ -65,28 +64,28 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     'x-asbd-id': '129477',
-    'x-fb-lsd': 'l3xtKJHu-w5A7HB_8Y9AeU',
+    'x-fb-lsd': '0ie-Iom0_AaWTZh9-Opsi9',
     }
 
     data = {
-    '__aaid': '0',
+     '__aaid': '0',
     '__user': '100077032827932',
     '__a': '1',
-    '__req': '2',
-    '__hs': '19840.BP:DEFAULT.2.0..0.0',
+    '__req': 'q',
+    '__hs': '19841.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
     '__ccg': 'EXCELLENT',
-    '__rev': '1013103709',
-    '__s': 'hhn6wu:svp0zk:p9hsiq',
-    '__hsi': '7362490235577612849',
-    '__dyn': '7xe6Eiw_K9zo5ObwKBAgc9o2exu13wqojyUW3qi4EoxW4E7SewXwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBw5Zx62G3i1ywdl0Fw4Hwp8kwyx2cwAxq1yK1LwPxe3C0D8sKUbobEaUiyE725U4q0N8G0iS2S3qazo11E2XU6-1FwLw8O1pwr86C0gi1QwtU',
+    '__rev': '1013110760',
+    '__s': 'n4nfpp:prgozg:jqkg9c',
+    '__hsi': '7362938325306866925',
+    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u',
     '__csr': '',
-    'fb_dtsg': 'NAcN10t3WzcL0EFhVm1plnNjw9aQ6sZ9Jyh8opYA8Zxn9o8a1YZ3IjA:37:1714213320',
-    'jazoest': '25365',
-    'lsd': 'l3xtKJHu-w5A7HB_8Y9AeU',
-    '__spin_r': '1013103709',
+    'fb_dtsg': 'NAcMbRKNlpob2vu5F2UDJdTK8g5RIYyaEQEzv-at_MoCx4T0coR9axw:37:1714213320',
+    'jazoest': '25481',
+    'lsd': '0ie-Iom0_AaWTZh9-Opsi9',
+    '__spin_r': '1013110760',
     '__spin_b': 'trunk',
-    '__spin_t': '1714213340',
+    '__spin_t': '1714317669',
     '__jssesw': '1',
     }
 
@@ -111,32 +110,31 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
         'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
         'ps_n': '1',
         'ps_l': '1',
-        'wd': '1470x395',
         'c_user': '100077032827932',
-        'xs': '37%3AC9Dlt2xH40rUHw%3A2%3A1714213320%3A-1%3A-1',
-        'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1714213325019%2C%22v%22%3A1%7D',
-        'fr': '1gVkqCvuC2AME8i12.AWVsomyZ62wFZRdLKlL7UKxBvtE.BmKi9o..AAA.0.0.BmLNHb.AWXtOZVk1sM',
+        'xs': '37%3AC9Dlt2xH40rUHw%3A2%3A1714213320%3A-1%3A-1%3A%3AAcVcx-exSVoJLYSO8DJsN8GYQzkDX-zQE3hJgqG25Q',
+        'fr': '11ZpDFjtHw4AukgUO.AWXu3H4zNbibveOIWd_J4Ox5MLE.BmLmlm..AAA.0.0.BmLmlm.AWUBSRME4us',
+        'wd': '1470x395',
         }
 
         data = {
-         '__aaid': '0',
+        '__aaid': '0',
     '__user': '100077032827932',
     '__a': '1',
-    '__req': '13',
-    '__hs': '19840.BP:DEFAULT.2.0..0.0',
+    '__req': '12',
+    '__hs': '19841.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
     '__ccg': 'EXCELLENT',
-    '__rev': '1013103709',
-    '__s': 'uo05oz:svp0zk:p9hsiq',
-    '__hsi': '7362490235577612849',
+    '__rev': '1013110760',
+    '__s': '5biafw:prgozg:jqkg9c',
+    '__hsi': '7362938325306866925',
     '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u',
     '__csr': '',
-    'fb_dtsg': 'NAcN10t3WzcL0EFhVm1plnNjw9aQ6sZ9Jyh8opYA8Zxn9o8a1YZ3IjA:37:1714213320',
-    'jazoest': '25365',
-    'lsd': 'l3xtKJHu-w5A7HB_8Y9AeU',
-    '__spin_r': '1013103709',
+    'fb_dtsg': 'NAcMbRKNlpob2vu5F2UDJdTK8g5RIYyaEQEzv-at_MoCx4T0coR9axw:37:1714213320',
+    'jazoest': '25481',
+    'lsd': '0ie-Iom0_AaWTZh9-Opsi9',
+    '__spin_r': '1013110760',
     '__spin_b': 'trunk',
-    '__spin_t': '1714213340',
+    '__spin_t': '1714317669',
     '__jssesw': '1',
         }
 
@@ -164,21 +162,20 @@ async def viewad(session, adArchiveID, pageID, countary):
     'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
     'ps_n': '1',
     'ps_l': '1',
-    'wd': '1470x395',
     'c_user': '100077032827932',
-    'xs': '37%3AC9Dlt2xH40rUHw%3A2%3A1714213320%3A-1%3A-1',
-    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1714213325019%2C%22v%22%3A1%7D',
-    'fr': '1gVkqCvuC2AME8i12.AWVsomyZ62wFZRdLKlL7UKxBvtE.BmKi9o..AAA.0.0.BmLNHb.AWXtOZVk1sM',
+    'xs': '37%3AC9Dlt2xH40rUHw%3A2%3A1714213320%3A-1%3A-1%3A%3AAcVcx-exSVoJLYSO8DJsN8GYQzkDX-zQE3hJgqG25Q',
+    'fr': '11ZpDFjtHw4AukgUO.AWXu3H4zNbibveOIWd_J4Ox5MLE.BmLmlm..AAA.0.0.BmLmlm.AWUBSRME4us',
+    'wd': '1470x395',
     }
 
     headers = {
-     'accept': '*/*',
+    'accept': '*/*',
     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
     'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; wd=1470x395; c_user=100077032827932; xs=37%3AC9Dlt2xH40rUHw%3A2%3A1714213320%3A-1%3A-1; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1714213325019%2C%22v%22%3A1%7D; fr=1gVkqCvuC2AME8i12.AWVsomyZ62wFZRdLKlL7UKxBvtE.BmKi9o..AAA.0.0.BmLNHb.AWXtOZVk1sM',
+    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100077032827932; xs=37%3AC9Dlt2xH40rUHw%3A2%3A1714213320%3A-1%3A-1%3A%3AAcVcx-exSVoJLYSO8DJsN8GYQzkDX-zQE3hJgqG25Q; fr=11ZpDFjtHw4AukgUO.AWXu3H4zNbibveOIWd_J4Ox5MLE.BmLmlm..AAA.0.0.BmLmlm.AWUBSRME4us; wd=1470x395',
     'origin': 'https://www.facebook.com',
     'priority': 'u=1, i',
-    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=Car&search_type=keyword_unordered&media_type=all',
+    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=zamzie&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered&media_type=all',
     'sec-ch-prefers-color-scheme': 'dark',
     'sec-ch-ua': '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
     'sec-ch-ua-full-version-list': '"Chromium";v="124.0.6367.92", "Google Chrome";v="124.0.6367.92", "Not-A.Brand";v="99.0.0.0"',
@@ -192,14 +189,14 @@ async def viewad(session, adArchiveID, pageID, countary):
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     'x-asbd-id': '129477',
     'x-fb-friendly-name': 'AdLibraryAdDetailsV2Query',
-    'x-fb-lsd': 'l3xtKJHu-w5A7HB_8Y9AeU',
+    'x-fb-lsd': '0ie-Iom0_AaWTZh9-Opsi9',
     }
     
     variables = {
         "adArchiveID": adArchiveID,
         "pageID": pageID,
         "country": countary,
-        "sessionID": "670269bb-5f46-4a2d-9c5a-168776f63ae3",
+        "sessionID": "516f2359-cba7-4ba9-8f18-8481e9554862",
         "source": None,
         "isAdNonPolitical": True,
         "isAdNotAAAEligible": False,
@@ -208,25 +205,25 @@ async def viewad(session, adArchiveID, pageID, countary):
     # Convert variables to JSON string
     variables_json = json.dumps(variables)
     data = {
-      'av': '100077032827932',
+   'av': '100077032827932',
     '__aaid': '0',
     '__user': '100077032827932',
     '__a': '1',
-    '__req': '1b',
-    '__hs': '19840.BP:DEFAULT.2.0..0.0',
+    '__req': '15',
+    '__hs': '19841.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
     '__ccg': 'EXCELLENT',
-    '__rev': '1013103709',
-    '__s': '2bsrve:svp0zk:p9hsiq',
-    '__hsi': '7362490235577612849',
+    '__rev': '1013110760',
+    '__s': 'ss4ch8:prgozg:jqkg9c',
+    '__hsi': '7362938325306866925',
     '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u',
     '__csr': '',
-    'fb_dtsg': 'NAcN10t3WzcL0EFhVm1plnNjw9aQ6sZ9Jyh8opYA8Zxn9o8a1YZ3IjA:37:1714213320',
-    'jazoest': '25365',
-    'lsd': 'l3xtKJHu-w5A7HB_8Y9AeU',
-    '__spin_r': '1013103709',
+    'fb_dtsg': 'NAcMbRKNlpob2vu5F2UDJdTK8g5RIYyaEQEzv-at_MoCx4T0coR9axw:37:1714213320',
+    'jazoest': '25481',
+    'lsd': '0ie-Iom0_AaWTZh9-Opsi9',
+    '__spin_r': '1013110760',
     '__spin_b': 'trunk',
-    '__spin_t': '1714213340',
+    '__spin_t': '1714317669',
     '__jssesw': '1',
     'fb_api_caller_class': 'RelayModern',
     'fb_api_req_friendly_name': 'AdLibraryAdDetailsV2Query',
@@ -267,7 +264,7 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
         
             if filtterStart_date <= start_date <= filtterEnd_date or filtterStart_date <= end_date <= filtterEnd_date:
                 tempActive = False
-                print(ad["isActive"])
+                # print(ad["isActive"])
                 if ad_status_type == 'active' and ad["isActive"] == True:
                     tempActive = True
                 elif ad_status_type == 'inactive' and ad["isActive"] == False:
