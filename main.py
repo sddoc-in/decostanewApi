@@ -91,7 +91,7 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
         #     headers=headers,
         #     data=data,
         # )
-        print(response.text)
+        print(response)
         return json.loads(response[9:])  
     else:
         
