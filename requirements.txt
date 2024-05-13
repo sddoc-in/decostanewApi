@@ -2,3 +2,6 @@ fastapi
 aiohttp
 asyncio
 uvicorn
+pandas
+selenium
+openpyxl

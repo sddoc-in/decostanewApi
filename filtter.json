@@ -1,0 +1,10 @@
+{
+    "query" : "zamzie",
+    "active_status" : "all",
+    "countary" :"NL",
+    "media_type" : "all",
+    "page" : 1,
+    "start_date": "2018-01-01",
+    "end_date": "2018-12-31",
+
+}
