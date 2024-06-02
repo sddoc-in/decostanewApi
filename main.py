@@ -16,7 +16,7 @@ def connect_db():
     uri = "mongodb+srv://deepak:facebook1ads@cluster0.y7i2s57.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
     # Create a new client and connect to the server
-    client = MongoClient(uri, server_api=ServerApi('1'))
+    client = MongoClient(uri, server_api=ServerApi('1'), tls=True, tlsAllowInvalidCertificates=True)
 
     # Send a ping to confirm a successful connection
     try:
