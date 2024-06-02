@@ -13,7 +13,8 @@ from pymongo.server_api import ServerApi
 
 
 def connect_db():
-    uri = "mongodb+srv://deepak:facebook1ads@cluster0.y7i2s57.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    # uri = "mongodb+srv://deepak:facebook1ads@cluster0.y7i2s57.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    uri ="mongodb+srv://ituser:WqBoDSrSTOw9JSbd@facebook-ads.c6ddcxb.mongodb.net/?retryWrites=true&w=majority&appName=Facebook-Ads"
 
     # Create a new client and connect to the server
     client = MongoClient(uri, server_api=ServerApi('1'), tls=True, tlsAllowInvalidCertificates=True)
@@ -385,7 +386,7 @@ async def SaveDataToDB(data, SearchUid, row ):
             print(data)
             for result in data['results']:
                 client = connect_db()
-                collection = client['facebookads']['results']
+                collection = client['Master']['results']
                 result['SearchUid'] = SearchUid
                 result['created_at'] = int(time.time())
                 collection.insert_one(result)
@@ -405,7 +406,7 @@ async def SaveDataToDB(data, SearchUid, row ):
 async def getdata(background_tasks: BackgroundTasks, SearchID : str = Query(None)):
     if SearchID:
         client = connect_db()
-        db = client['facebookads']
+        db = client['Master']
         collection = db['search']
         data = collection.find_one({"searchID": SearchID})
         SearchUid = str(data['_id'])
