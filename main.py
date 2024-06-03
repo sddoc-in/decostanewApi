@@ -56,51 +56,62 @@ async def fetch(session, url, headers=None, cookies=None, data=None):
 
 
 async def searchAds(session, page, countary,querry, forward_cursor, backward_cursor, collation_token, start_date , end_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms) :
-    session_id = '123df71d-9ea0-43c9-8a13-c1aeb993d423'
+    session_id = 'ce2bbd04-d85c-4a7d-b0bd-8aa7dae64426'
     cookies = {
-    'datr': '2p5cZgs2z7aml8cYgBpHtO1T',
+    'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
+    'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
+    'ps_n': '1',
+    'ps_l': '1',
+    'c_user': '100077032827932',
+    'xs': '14%3AIIv33MrtPibwfA%3A2%3A1716227335%3A-1%3A-1%3A%3AAcVb08P2I7w_OvixdgYo6IcxTLALy-b53Ar2Zx6y7Q',
+    'fr': '1FtLZGR0zWc1ltd10.AWVE2-j9hst6OjfpqmHXBj_t1OQ.BmXhPf..AAA.0.0.BmXhPf.AWUbMK1K2Fs',
     'wd': '1470x378',
     }
 
 
     headers = {
-    'accept': '*/*',
-    'accept-language': 'en-GB,en;q=0.9',
+   'accept': '*/*',
+    'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7,fr;q=0.6,gu;q=0.5,de;q=0.4',
     'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'datr=2p5cZgs2z7aml8cYgBpHtO1T; wd=1470x378',
+    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100077032827932; xs=14%3AIIv33MrtPibwfA%3A2%3A1716227335%3A-1%3A-1%3A%3AAcVb08P2I7w_OvixdgYo6IcxTLALy-b53Ar2Zx6y7Q; fr=1FtLZGR0zWc1ltd10.AWVE2-j9hst6OjfpqmHXBj_t1OQ.BmXhPf..AAA.0.0.BmXhPf.AWUbMK1K2Fs; wd=1470x378',
     'dnt': '1',
     'origin': 'https://www.facebook.com',
     'priority': 'u=1, i',
     'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=korting&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered&media_type=all',
+    'sec-ch-prefers-color-scheme': 'dark',
     'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
+    'sec-ch-ua-full-version-list': '"Google Chrome";v="125.0.6422.141", "Chromium";v="125.0.6422.141", "Not.A/Brand";v="24.0.0.0"',
     'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-model': '""',
     'sec-ch-ua-platform': '"macOS"',
+    'sec-ch-ua-platform-version': '"14.5.0"',
     'sec-fetch-dest': 'empty',
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
     'x-asbd-id': '129477',
-    'x-fb-lsd': 'AVol2jqZlOk',
+    'x-fb-lsd': 'PjTBdPhnXOhysZ0SizTX2A',
     }
 
     data = {
-      '__aaid': '0',
-    '__user': '0',
+   '__aaid': '0',
+    '__user': '100077032827932',
     '__a': '1',
-    '__req': 'q',
-    '__hs': '19876.BP:DEFAULT.2.0..0.0',
+    '__req': 's',
+    '__hs': '19877.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
-    '__ccg': 'EXCELLENT',
-    '__rev': '1013917984',
-    '__s': 'x3199t:uz3tx9:68d0t9',
-    '__hsi': '7375944949067236991',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u1rw',
+    '__ccg': 'GOOD',
+    '__rev': '1013925845',
+    '__s': 'a5ky2w:nlln7g:xd8l8r',
+    '__hsi': '7376355084782368472',
+    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u2-2K',
     '__csr': '',
-    'lsd': 'AVol2jqZlOk',
-    'jazoest': '21023',
-    '__spin_r': '1013917984',
+    'fb_dtsg': 'NAcNntykuQdQHtmDg88JhkqxcwCXEeUHRA_jIzNqrdaY4sS0-kOLg3w:14:1716227335',
+    'jazoest': '25697',
+    'lsd': 'PjTBdPhnXOhysZ0SizTX2A',
+    '__spin_r': '1013925845',
     '__spin_b': 'trunk',
-    '__spin_t': '1717346010',
+    '__spin_t': '1717441502',
     '__jssesw': '1',
     }
 
@@ -122,28 +133,35 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
     else:
         
         cookies = {
-        'datr': '2p5cZgs2z7aml8cYgBpHtO1T',
-    'wd': '1470x378',
+        'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
+    'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
+    'ps_n': '1',
+    'ps_l': '1',
+    'c_user': '100077032827932',
+    'xs': '14%3AIIv33MrtPibwfA%3A2%3A1716227335%3A-1%3A-1%3A%3AAcVb08P2I7w_OvixdgYo6IcxTLALy-b53Ar2Zx6y7Q',
+    'fr': '1FtLZGR0zWc1ltd10.AWVE2-j9hst6OjfpqmHXBj_t1OQ.BmXhPf..AAA.0.0.BmXhPf.AWUbMK1K2Fs',
+    'wd': '1470x353',
             }
 
         data = {
-      '__aaid': '0',
-    '__user': '0',
+    '__aaid': '0',
+    '__user': '100077032827932',
     '__a': '1',
-    '__req': '1b',
-    '__hs': '19876.BP:DEFAULT.2.0..0.0',
+    '__req': '1a',
+    '__hs': '19877.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
-    '__ccg': 'EXCELLENT',
-    '__rev': '1013917984',
-    '__s': '7xyosw:uz3tx9:68d0t9',
-    '__hsi': '7375944949067236991',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u1rw',
+    '__ccg': 'GOOD',
+    '__rev': '1013925845',
+    '__s': '4y8apl:nlln7g:xd8l8r',
+    '__hsi': '7376355084782368472',
+    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u2-2K',
     '__csr': '',
-    'lsd': 'AVol2jqZlOk',
-    'jazoest': '21023',
-    '__spin_r': '1013917984',
+    'fb_dtsg': 'NAcNntykuQdQHtmDg88JhkqxcwCXEeUHRA_jIzNqrdaY4sS0-kOLg3w:14:1716227335',
+    'jazoest': '25697',
+    'lsd': 'PjTBdPhnXOhysZ0SizTX2A',
+    '__spin_r': '1013925845',
     '__spin_b': 'trunk',
-    '__spin_t': '1717346010',
+    '__spin_t': '1717441502',
     '__jssesw': '1',
             }
 
@@ -167,36 +185,46 @@ async def epoch_to_timestamp(epoch_time):
 
 async def viewad(session, adArchiveID, pageID, countary):
     cookies = {
-  'datr': '2p5cZgs2z7aml8cYgBpHtO1T',
-    'wd': '1470x378',
+   'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
+    'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
+    'ps_n': '1',
+    'ps_l': '1',
+    'c_user': '100077032827932',
+    'xs': '14%3AIIv33MrtPibwfA%3A2%3A1716227335%3A-1%3A-1%3A%3AAcVb08P2I7w_OvixdgYo6IcxTLALy-b53Ar2Zx6y7Q',
+    'fr': '1FtLZGR0zWc1ltd10.AWVE2-j9hst6OjfpqmHXBj_t1OQ.BmXhPf..AAA.0.0.BmXhPf.AWUbMK1K2Fs',
+    'wd': '1470x493',
     }
 
     headers = {
    'accept': '*/*',
-    'accept-language': 'en-GB,en;q=0.9',
+    'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7,fr;q=0.6,gu;q=0.5,de;q=0.4',
     'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'datr=2p5cZgs2z7aml8cYgBpHtO1T; wd=1470x378',
+    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100077032827932; xs=14%3AIIv33MrtPibwfA%3A2%3A1716227335%3A-1%3A-1%3A%3AAcVb08P2I7w_OvixdgYo6IcxTLALy-b53Ar2Zx6y7Q; fr=1FtLZGR0zWc1ltd10.AWVE2-j9hst6OjfpqmHXBj_t1OQ.BmXhPf..AAA.0.0.BmXhPf.AWUbMK1K2Fs; wd=1470x493',
     'dnt': '1',
     'origin': 'https://www.facebook.com',
     'priority': 'u=1, i',
     'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=korting&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered&media_type=all',
+    'sec-ch-prefers-color-scheme': 'dark',
     'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
+    'sec-ch-ua-full-version-list': '"Google Chrome";v="125.0.6422.141", "Chromium";v="125.0.6422.141", "Not.A/Brand";v="24.0.0.0"',
     'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-model': '""',
     'sec-ch-ua-platform': '"macOS"',
+    'sec-ch-ua-platform-version': '"14.5.0"',
     'sec-fetch-dest': 'empty',
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
     'x-asbd-id': '129477',
     'x-fb-friendly-name': 'AdLibraryAdDetailsV2Query',
-    'x-fb-lsd': 'AVol2jqZlOk',
+    'x-fb-lsd': 'PjTBdPhnXOhysZ0SizTX2A',
     }
     
     variables = {
         "adArchiveID": adArchiveID,
         "pageID": pageID,
         "country": countary,
-        "sessionID": "123df71d-9ea0-43c9-8a13-c1aeb993d423",
+        "sessionID": "ce2bbd04-d85c-4a7d-b0bd-8aa7dae64426",
         "source": None,
         "isAdNonPolitical": True,
         "isAdNotAAAEligible": False,
@@ -205,24 +233,25 @@ async def viewad(session, adArchiveID, pageID, countary):
     # Convert variables to JSON string
     variables_json = json.dumps(variables)
     data = {
-       'av': '0',
+    'av': '100077032827932',
     '__aaid': '0',
-    '__user': '0',
+    '__user': '100077032827932',
     '__a': '1',
-    '__req': '23',
-    '__hs': '19876.BP:DEFAULT.2.0..0.0',
+    '__req': '1o',
+    '__hs': '19877.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
-    '__ccg': 'EXCELLENT',
-    '__rev': '1013917984',
-    '__s': '7xyosw:uz3tx9:68d0t9',
-    '__hsi': '7375944949067236991',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u1rw',
+    '__ccg': 'GOOD',
+    '__rev': '1013925845',
+    '__s': 'iywo9s:nlln7g:xd8l8r',
+    '__hsi': '7376355084782368472',
+    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u2-2K',
     '__csr': '',
-    'lsd': 'AVol2jqZlOk',
-    'jazoest': '21023',
-    '__spin_r': '1013917984',
+    'fb_dtsg': 'NAcNntykuQdQHtmDg88JhkqxcwCXEeUHRA_jIzNqrdaY4sS0-kOLg3w:14:1716227335',
+    'jazoest': '25697',
+    'lsd': 'PjTBdPhnXOhysZ0SizTX2A',
+    '__spin_r': '1013925845',
     '__spin_b': 'trunk',
-    '__spin_t': '1717346010',
+    '__spin_t': '1717441502',
     '__jssesw': '1',
     'fb_api_caller_class': 'RelayModern',
     'fb_api_req_friendly_name': 'AdLibraryAdDetailsV2Query',
@@ -394,11 +423,18 @@ async def SaveDataToDB(data, SearchUid, row ):
             
             
 
-       
-
-    
-
-    
+@app.get("/total", response_class=JSONResponse)
+async def resultRecord(SearchID : str = Query(None)):
+    if SearchID:
+        client = connect_db()
+        db = client['Master']
+        collection = db['results']
+        data = collection.find({"SearchUid": SearchID})
+        totalRow = await GetTotalRow(data)
+        client.close()
+        return {"total": totalRow}
+    else:
+        return {"error": "SearchID is required"}
 
 
 
@@ -419,4 +455,4 @@ async def getdata(background_tasks: BackgroundTasks, SearchID : str = Query(None
     
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=8000)
+    uvicorn.run(app, host='0.0.0.0', port=80)
