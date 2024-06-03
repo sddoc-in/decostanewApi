@@ -55,7 +55,7 @@ async def fetch(session, url, headers=None, cookies=None, data=None):
         return await response.text()
 
 
-async def searchAds(session, page, countary,querry, forward_cursor, backward_cursor, collation_token, start_date , end_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms) :
+async def searchAds(session, page, countary,querry, forward_cursor, backward_cursor, collation_token, start_date , end_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms, totalFlag) :
     session_id = 'ce2bbd04-d85c-4a7d-b0bd-8aa7dae64426'
     cookies = {
     'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
@@ -117,10 +117,18 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
 
     
     if page == 1:
-        url =    f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&session_id={session_id}&count=30&active_status=all&ad_type=all&countries[0]={countary}&media_type=all&search_type=keyword_unordered'
-        
-        # url = rf'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&session_id={session_id}&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&publisher_platforms[0]={publisher_platforms}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&search_type=keyword_unordered'
+        url =''
 
+        if totalFlag:
+            url = rf'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&session_id={session_id}&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&publisher_platforms[0]={publisher_platforms}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&search_type=keyword_unordered'
+
+        else:
+
+            url =    f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&session_id={session_id}&count=30&active_status=all&ad_type=all&countries[0]={countary}&media_type=all&search_type=keyword_unordered'
+
+
+        
+        
 
         response = await fetch(session,  url, headers=headers, cookies=cookies, data=data)
         # response = requests.post(
@@ -269,9 +277,9 @@ async def viewad(session, adArchiveID, pageID, countary):
 
 
 
-async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEnd_date,Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages , publisher_platforms):
+async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEnd_date,Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages , publisher_platforms , totalFlag):
     try:
-        data = await searchAds(session, page,countary ,querry, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, filtterEnd_date, filtterEnd_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms)
+        data = await searchAds(session, page,countary ,querry, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, filtterEnd_date, filtterEnd_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms, totalFlag)
         
     except Exception as e:
         return {"error": f"Error: {e}"}
@@ -355,12 +363,13 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
 #         data = await getPageAds(session,page, country , querry, filtterStart_date,  filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages , publisher_platforms)
 #         return data
     
-async def read_item(country, page , querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms):
+async def read_item(country, page , querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms, totalFlag):
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
-        data = await getPageAds(session,page, country , querry, filtterStart_date,  filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages , publisher_platforms)
+        data = await getPageAds(session,page, country , querry, filtterStart_date,  filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages , publisher_platforms, totalFlag)
         return data
     
 async def GetTotalRow(data):
+    print(data)
     countary = data['country']
     querry = data['querry']
     filtterStart_date = data['filtterStart_date']
@@ -380,11 +389,11 @@ async def GetTotalRow(data):
     content_languages = data['content_languages']
     publisher_platforms = data['publisher_platforms']
     page = data['page']
-    data =  await read_item(countary, page, querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms)
+    data =  await read_item(countary, page, querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms,True)
     row = data['pageData']['totalAdcount']
     return row
 
-async def SaveDataToDB(data, SearchUid, row ):
+async def SaveDataToDB(data, SearchUid, row, SearchID ):
    
     countary = data['country']
     querry = data['querry']
@@ -405,20 +414,23 @@ async def SaveDataToDB(data, SearchUid, row ):
     content_languages = data['content_languages']
     publisher_platforms = data['publisher_platforms']
     page = data['page']
+    # print(row)
     for i in range(1, row):
         async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
             
-            data = await read_item(countary, i, querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms)
+            data = await read_item(countary, i, querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms, False)
             Nextbackward_cursor = data['pageData']['backward_cursor']
             Nextforward_cursor = data['pageData']['forward_cursor']
             Nextcollation_token = data['pageData']['collation_token']
-            print(data)
             for result in data['results']:
                 client = connect_db()
                 collection = client['Master']['results']
+                searchCollection = client['Master']['search']
+                searchCollection.update_one({"searchId": SearchID}, {"$inc": {"status": 1}})
                 result['SearchUid'] = SearchUid
                 result['created_at'] = int(time.time())
                 collection.insert_one(result)
+                # print(result)
                 client.close()
             
             
@@ -428,15 +440,13 @@ async def resultRecord(SearchID : str = Query(None)):
     if SearchID:
         client = connect_db()
         db = client['Master']
-        collection = db['results']
-        data = collection.find({"SearchUid": SearchID})
-        totalRow = await GetTotalRow(data)
+        collection = db['search']
+        data = collection.find_one({"searchId": SearchID})
+        row = await GetTotalRow(data)
         client.close()
-        return {"total": totalRow}
+        return {"total": row}
     else:
         return {"error": "SearchID is required"}
-
-
 
 @app.get("/ads", response_class=JSONResponse)
 async def getdata(background_tasks: BackgroundTasks, SearchID : str = Query(None)):
@@ -444,15 +454,15 @@ async def getdata(background_tasks: BackgroundTasks, SearchID : str = Query(None
         client = connect_db()
         db = client['Master']
         collection = db['search']
-        data = collection.find_one({"searchID": SearchID})
+        data = collection.find_one({"searchId": SearchID})
         SearchUid = str(data['_id'])
         row = await GetTotalRow(data)
         try:
-            background_tasks.add_task(SaveDataToDB, data, SearchUid, row)
+            background_tasks.add_task(SaveDataToDB, data, SearchUid, row, SearchID)
             return {"status": "success"}
         except Exception as e:
             return {"error": f"Error: {e}"}
     
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=80)
+    uvicorn.run(app, host='0.0.0.0', port=8000)
