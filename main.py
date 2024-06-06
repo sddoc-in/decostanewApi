@@ -5,12 +5,8 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import aiohttp , asyncio, json
 import time, logging
-
-
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-
-
 
 def connect_db():
     # uri = "mongodb+srv://deepak:facebook1ads@cluster0.y7i2s57.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
@@ -56,31 +52,32 @@ async def fetch(session, url, headers=None, cookies=None, data=None):
 
 
 async def searchAds(session, page, countary,querry, forward_cursor, backward_cursor, collation_token, start_date , end_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms, totalFlag) :
-    session_id = 'ce2bbd04-d85c-4a7d-b0bd-8aa7dae64426'
+    session_id = 'f720b74f-9414-4fcf-a0cb-331eef7de9f5'
     cookies = {
-    'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
+   'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
     'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
     'ps_n': '1',
     'ps_l': '1',
-    'c_user': '100077032827932',
-    'xs': '14%3AIIv33MrtPibwfA%3A2%3A1716227335%3A-1%3A-1%3A%3AAcVb08P2I7w_OvixdgYo6IcxTLALy-b53Ar2Zx6y7Q',
-    'fr': '1FtLZGR0zWc1ltd10.AWVE2-j9hst6OjfpqmHXBj_t1OQ.BmXhPf..AAA.0.0.BmXhPf.AWUbMK1K2Fs',
-    'wd': '1470x378',
+    'c_user': '100068654010842',
+    'xs': '20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608',
+    'fr': '1Iqp1df39eZXdBwas.AWU7FoBHAFdTpiCYYtZpYXBbTHA.BmXvJs..AAA.0.0.BmYd2l.AWU17v7Zftc',
+    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1717689769463%2C%22v%22%3A1%7D',
+    'wd': '1470x196',
     }
 
 
     headers = {
-   'accept': '*/*',
+    'accept': '*/*',
     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7,fr;q=0.6,gu;q=0.5,de;q=0.4',
     'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100077032827932; xs=14%3AIIv33MrtPibwfA%3A2%3A1716227335%3A-1%3A-1%3A%3AAcVb08P2I7w_OvixdgYo6IcxTLALy-b53Ar2Zx6y7Q; fr=1FtLZGR0zWc1ltd10.AWVE2-j9hst6OjfpqmHXBj_t1OQ.BmXhPf..AAA.0.0.BmXhPf.AWUbMK1K2Fs; wd=1470x378',
+    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100068654010842; xs=20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608; fr=1Iqp1df39eZXdBwas.AWU7FoBHAFdTpiCYYtZpYXBbTHA.BmXvJs..AAA.0.0.BmYd2l.AWU17v7Zftc; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1717689769463%2C%22v%22%3A1%7D; wd=1470x196',
     'dnt': '1',
     'origin': 'https://www.facebook.com',
     'priority': 'u=1, i',
-    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=korting&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered&media_type=all',
+    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=korting&search_type=keyword_unordered&media_type=all',
     'sec-ch-prefers-color-scheme': 'dark',
     'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
-    'sec-ch-ua-full-version-list': '"Google Chrome";v="125.0.6422.141", "Chromium";v="125.0.6422.141", "Not.A/Brand";v="24.0.0.0"',
+    'sec-ch-ua-full-version-list': '"Google Chrome";v="125.0.6422.142", "Chromium";v="125.0.6422.142", "Not.A/Brand";v="24.0.0.0"',
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-model': '""',
     'sec-ch-ua-platform': '"macOS"',
@@ -90,28 +87,28 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
     'x-asbd-id': '129477',
-    'x-fb-lsd': 'PjTBdPhnXOhysZ0SizTX2A',
+    'x-fb-lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
     }
 
     data = {
-   '__aaid': '0',
-    '__user': '100077032827932',
+  '__aaid': '0',
+    '__user': '100068654010842',
     '__a': '1',
-    '__req': 's',
-    '__hs': '19877.BP:DEFAULT.2.0..0.0',
+    '__req': '2',
+    '__hs': '19880.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
-    '__ccg': 'GOOD',
-    '__rev': '1013925845',
-    '__s': 'a5ky2w:nlln7g:xd8l8r',
-    '__hsi': '7376355084782368472',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u2-2K',
+    '__ccg': 'EXCELLENT',
+    '__rev': '1014024046',
+    '__s': 'f7zikj:j0rf5e:oy7gms',
+    '__hsi': '7377450112573883033',
+    '__dyn': '7xe6Eiw_K9zo5ObwKBAgc9o2exu13wqojyUW3qi4EoxW4E7SewXwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBw5Zx62G3i1ywdl0Fw4Hwp8kwyx2cwAxq1yK1LwPxe3C0D8sKUbobEaUiyE725U4q0N8G0iS2S3qazo11E2XU6-1FAwGw8O1pwr86C0nC1TwmU',
     '__csr': '',
-    'fb_dtsg': 'NAcNntykuQdQHtmDg88JhkqxcwCXEeUHRA_jIzNqrdaY4sS0-kOLg3w:14:1716227335',
-    'jazoest': '25697',
-    'lsd': 'PjTBdPhnXOhysZ0SizTX2A',
-    '__spin_r': '1013925845',
+    'fb_dtsg': 'NAcPpa79etSA9J1fEgnFC-oNjwHWbk879WCIqB3tCArphfpS-USQeAw:20:1717689763',
+    'jazoest': '25360',
+    'lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
+    '__spin_r': '1014024046',
     '__spin_b': 'trunk',
-    '__spin_t': '1717441502',
+    '__spin_t': '1717696458',
     '__jssesw': '1',
     }
 
@@ -141,35 +138,36 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
     else:
         
         cookies = {
-        'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
+       'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
     'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
     'ps_n': '1',
     'ps_l': '1',
-    'c_user': '100077032827932',
-    'xs': '14%3AIIv33MrtPibwfA%3A2%3A1716227335%3A-1%3A-1%3A%3AAcVb08P2I7w_OvixdgYo6IcxTLALy-b53Ar2Zx6y7Q',
-    'fr': '1FtLZGR0zWc1ltd10.AWVE2-j9hst6OjfpqmHXBj_t1OQ.BmXhPf..AAA.0.0.BmXhPf.AWUbMK1K2Fs',
-    'wd': '1470x353',
+    'c_user': '100068654010842',
+    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1717689769463%2C%22v%22%3A1%7D',
+    'xs': '20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608%3A%3AAcXcTFUn63gJQ5kJTkJ-Fa8zP9K8BwMJ18xC1bCV0w',
+    'fr': '1HDQU7KfGYMggY0zZ.AWWY_W-Ktk9mxPK6cxh0UxgsDcw.BmYffM..AAA.0.0.BmYffM.AWVWHxvNrJs',
+    'wd': '1470x392',
             }
 
         data = {
-    '__aaid': '0',
-    '__user': '100077032827932',
+      '__aaid': '0',
+    '__user': '100068654010842',
     '__a': '1',
-    '__req': '1a',
-    '__hs': '19877.BP:DEFAULT.2.0..0.0',
+    '__req': 't',
+    '__hs': '19880.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
-    '__ccg': 'GOOD',
-    '__rev': '1013925845',
-    '__s': '4y8apl:nlln7g:xd8l8r',
-    '__hsi': '7376355084782368472',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u2-2K',
+    '__ccg': 'EXCELLENT',
+    '__rev': '1014024046',
+    '__s': 't6did2:j0rf5e:oy7gms',
+    '__hsi': '7377450112573883033',
+    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81bo4a4oaEd86a0HU9k2C2218waG5E6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4qxa7o-3qazo8U3ywbLwrU6Ci2G0z85C1Iwqo1uo7u2-2K',
     '__csr': '',
-    'fb_dtsg': 'NAcNntykuQdQHtmDg88JhkqxcwCXEeUHRA_jIzNqrdaY4sS0-kOLg3w:14:1716227335',
-    'jazoest': '25697',
-    'lsd': 'PjTBdPhnXOhysZ0SizTX2A',
-    '__spin_r': '1013925845',
+    'fb_dtsg': 'NAcPpa79etSA9J1fEgnFC-oNjwHWbk879WCIqB3tCArphfpS-USQeAw:20:1717689763',
+    'jazoest': '25360',
+    'lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
+    '__spin_r': '1014024046',
     '__spin_b': 'trunk',
-    '__spin_t': '1717441502',
+    '__spin_t': '1717696458',
     '__jssesw': '1',
             }
 
@@ -193,28 +191,29 @@ async def epoch_to_timestamp(epoch_time):
 
 async def viewad(session, adArchiveID, pageID, countary):
     cookies = {
-   'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
+    'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
     'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
     'ps_n': '1',
     'ps_l': '1',
-    'c_user': '100077032827932',
-    'xs': '14%3AIIv33MrtPibwfA%3A2%3A1716227335%3A-1%3A-1%3A%3AAcVb08P2I7w_OvixdgYo6IcxTLALy-b53Ar2Zx6y7Q',
-    'fr': '1FtLZGR0zWc1ltd10.AWVE2-j9hst6OjfpqmHXBj_t1OQ.BmXhPf..AAA.0.0.BmXhPf.AWUbMK1K2Fs',
-    'wd': '1470x493',
+    'c_user': '100068654010842',
+    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1717689769463%2C%22v%22%3A1%7D',
+    'xs': '20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608%3A%3AAcXcTFUn63gJQ5kJTkJ-Fa8zP9K8BwMJ18xC1bCV0w',
+    'fr': '1HDQU7KfGYMggY0zZ.AWWY_W-Ktk9mxPK6cxh0UxgsDcw.BmYffM..AAA.0.0.BmYffM.AWVWHxvNrJs',
+    'wd': '1470x392',
     }
 
     headers = {
    'accept': '*/*',
     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7,fr;q=0.6,gu;q=0.5,de;q=0.4',
     'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100077032827932; xs=14%3AIIv33MrtPibwfA%3A2%3A1716227335%3A-1%3A-1%3A%3AAcVb08P2I7w_OvixdgYo6IcxTLALy-b53Ar2Zx6y7Q; fr=1FtLZGR0zWc1ltd10.AWVE2-j9hst6OjfpqmHXBj_t1OQ.BmXhPf..AAA.0.0.BmXhPf.AWUbMK1K2Fs; wd=1470x493',
+    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100068654010842; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1717689769463%2C%22v%22%3A1%7D; xs=20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608%3A%3AAcXcTFUn63gJQ5kJTkJ-Fa8zP9K8BwMJ18xC1bCV0w; fr=1HDQU7KfGYMggY0zZ.AWWY_W-Ktk9mxPK6cxh0UxgsDcw.BmYffM..AAA.0.0.BmYffM.AWVWHxvNrJs; wd=1470x392',
     'dnt': '1',
     'origin': 'https://www.facebook.com',
     'priority': 'u=1, i',
-    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=korting&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered&media_type=all',
+    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=korting&search_type=keyword_unordered&media_type=all',
     'sec-ch-prefers-color-scheme': 'dark',
     'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
-    'sec-ch-ua-full-version-list': '"Google Chrome";v="125.0.6422.141", "Chromium";v="125.0.6422.141", "Not.A/Brand";v="24.0.0.0"',
+    'sec-ch-ua-full-version-list': '"Google Chrome";v="125.0.6422.142", "Chromium";v="125.0.6422.142", "Not.A/Brand";v="24.0.0.0"',
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-model': '""',
     'sec-ch-ua-platform': '"macOS"',
@@ -225,14 +224,14 @@ async def viewad(session, adArchiveID, pageID, countary):
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
     'x-asbd-id': '129477',
     'x-fb-friendly-name': 'AdLibraryAdDetailsV2Query',
-    'x-fb-lsd': 'PjTBdPhnXOhysZ0SizTX2A',
+    'x-fb-lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
     }
     
     variables = {
         "adArchiveID": adArchiveID,
         "pageID": pageID,
         "country": countary,
-        "sessionID": "ce2bbd04-d85c-4a7d-b0bd-8aa7dae64426",
+        "sessionID": "f720b74f-9414-4fcf-a0cb-331eef7de9f5",
         "source": None,
         "isAdNonPolitical": True,
         "isAdNotAAAEligible": False,
@@ -241,25 +240,25 @@ async def viewad(session, adArchiveID, pageID, countary):
     # Convert variables to JSON string
     variables_json = json.dumps(variables)
     data = {
-    'av': '100077032827932',
+    'av': '100068654010842',
     '__aaid': '0',
-    '__user': '100077032827932',
+    '__user': '100068654010842',
     '__a': '1',
-    '__req': '1o',
-    '__hs': '19877.BP:DEFAULT.2.0..0.0',
+    '__req': '1i',
+    '__hs': '19880.BP:DEFAULT.2.0..0.0',
     'dpr': '2',
-    '__ccg': 'GOOD',
-    '__rev': '1013925845',
-    '__s': 'iywo9s:nlln7g:xd8l8r',
-    '__hsi': '7376355084782368472',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81s8hwGwQwoE2LwBgao884y0Mo6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4JwJwSyES0gq0K-1LwqobU2cwmo6O1Fw44wt87u2-2K',
+    '__ccg': 'EXCELLENT',
+    '__rev': '1014024046',
+    '__s': 'v0679i:j0rf5e:oy7gms',
+    '__hsi': '7377450112573883033',
+    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81bo4a4oaEd86a0HU9k2C2218waG5E6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4qxa7o-3qazo8U3ywbLwrU6Ci2G0z85C1Iwqo1uo7u2-2K',
     '__csr': '',
-    'fb_dtsg': 'NAcNntykuQdQHtmDg88JhkqxcwCXEeUHRA_jIzNqrdaY4sS0-kOLg3w:14:1716227335',
-    'jazoest': '25697',
-    'lsd': 'PjTBdPhnXOhysZ0SizTX2A',
-    '__spin_r': '1013925845',
+    'fb_dtsg': 'NAcPpa79etSA9J1fEgnFC-oNjwHWbk879WCIqB3tCArphfpS-USQeAw:20:1717689763',
+    'jazoest': '25360',
+    'lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
+    '__spin_r': '1014024046',
     '__spin_b': 'trunk',
-    '__spin_t': '1717441502',
+    '__spin_t': '1717696458',
     '__jssesw': '1',
     'fb_api_caller_class': 'RelayModern',
     'fb_api_req_friendly_name': 'AdLibraryAdDetailsV2Query',
@@ -393,7 +392,7 @@ async def GetTotalRow(data):
     row = data['pageData']['totalAdcount']
     return row
 
-async def SaveDataToDB(data, SearchUid, row, SearchID ):
+async def SaveDataToDB(data, row, SearchID ):
    
     countary = data['country']
     querry = data['querry']
@@ -427,7 +426,7 @@ async def SaveDataToDB(data, SearchUid, row, SearchID ):
                 collection = client['Master']['results']
                 searchCollection = client['Master']['search']
                 searchCollection.update_one({"searchId": SearchID}, {"$inc": {"status": 1}})
-                result['SearchUid'] = SearchUid
+                result['SearchUid'] = SearchID
                 result['created_at'] = int(time.time())
                 collection.insert_one(result)
                 # print(result)
@@ -442,8 +441,11 @@ async def resultRecord(SearchID : str = Query(None)):
         db = client['Master']
         collection = db['search']
         data = collection.find_one({"searchId": SearchID})
-        row = await GetTotalRow(data)
         client.close()
+        try:
+            row = await GetTotalRow(data)
+        except Exception as e:
+            return {"error": f"Error: {e}"}
         return {"total": row}
     else:
         return {"error": "SearchID is required"}
@@ -455,10 +457,9 @@ async def getdata(background_tasks: BackgroundTasks, SearchID : str = Query(None
         db = client['Master']
         collection = db['search']
         data = collection.find_one({"searchId": SearchID})
-        SearchUid = str(data['_id'])
         row = await GetTotalRow(data)
         try:
-            background_tasks.add_task(SaveDataToDB, data, SearchUid, row, SearchID)
+            background_tasks.add_task(SaveDataToDB, data, row, SearchID)
             return {"status": "success"}
         except Exception as e:
             return {"error": f"Error: {e}"}
