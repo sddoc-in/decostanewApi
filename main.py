@@ -54,65 +54,17 @@ async def fetch(session, url, headers=None, cookies=None, data=None):
 
 
 async def searchAds(session, page, countary,querry, forward_cursor, backward_cursor, collation_token, start_date , end_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms, totalFlag) :
-    session_id = 'f720b74f-9414-4fcf-a0cb-331eef7de9f5'
-    cookies = {
-   'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
-    'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
-    'ps_n': '1',
-    'ps_l': '1',
-    'c_user': '100068654010842',
-    'xs': '20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608',
-    'fr': '1Iqp1df39eZXdBwas.AWU7FoBHAFdTpiCYYtZpYXBbTHA.BmXvJs..AAA.0.0.BmYd2l.AWU17v7Zftc',
-    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1717689769463%2C%22v%22%3A1%7D',
-    'wd': '1470x196',
-    }
+    client = connect_db()
+    search_cookie = client['Master']['cookies'].find_one()
+    client.close()
+    session_id = search_cookie['cookies']['sessionID']
+    print(session_id)
+    cookies = search_cookie['cookies']['SearchCookie1']['cookies']
 
 
-    headers = {
-    'accept': '*/*',
-    'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7,fr;q=0.6,gu;q=0.5,de;q=0.4',
-    'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100068654010842; xs=20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608; fr=1Iqp1df39eZXdBwas.AWU7FoBHAFdTpiCYYtZpYXBbTHA.BmXvJs..AAA.0.0.BmYd2l.AWU17v7Zftc; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1717689769463%2C%22v%22%3A1%7D; wd=1470x196',
-    'dnt': '1',
-    'origin': 'https://www.facebook.com',
-    'priority': 'u=1, i',
-    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=korting&search_type=keyword_unordered&media_type=all',
-    'sec-ch-prefers-color-scheme': 'dark',
-    'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
-    'sec-ch-ua-full-version-list': '"Google Chrome";v="125.0.6422.142", "Chromium";v="125.0.6422.142", "Not.A/Brand";v="24.0.0.0"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-model': '""',
-    'sec-ch-ua-platform': '"macOS"',
-    'sec-ch-ua-platform-version': '"14.5.0"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
-    'x-asbd-id': '129477',
-    'x-fb-lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
-    }
+    headers = search_cookie['cookies']['SearchCookie1']['headers']
 
-    data = {
-  '__aaid': '0',
-    '__user': '100068654010842',
-    '__a': '1',
-    '__req': '2',
-    '__hs': '19880.BP:DEFAULT.2.0..0.0',
-    'dpr': '2',
-    '__ccg': 'EXCELLENT',
-    '__rev': '1014024046',
-    '__s': 'f7zikj:j0rf5e:oy7gms',
-    '__hsi': '7377450112573883033',
-    '__dyn': '7xe6Eiw_K9zo5ObwKBAgc9o2exu13wqojyUW3qi4EoxW4E7SewXwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBw5Zx62G3i1ywdl0Fw4Hwp8kwyx2cwAxq1yK1LwPxe3C0D8sKUbobEaUiyE725U4q0N8G0iS2S3qazo11E2XU6-1FAwGw8O1pwr86C0nC1TwmU',
-    '__csr': '',
-    'fb_dtsg': 'NAcPpa79etSA9J1fEgnFC-oNjwHWbk879WCIqB3tCArphfpS-USQeAw:20:1717689763',
-    'jazoest': '25360',
-    'lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
-    '__spin_r': '1014024046',
-    '__spin_b': 'trunk',
-    '__spin_t': '1717696458',
-    '__jssesw': '1',
-    }
+    data = search_cookie['cookies']['SearchCookie1']['data']
 
     
     if page == 1:
@@ -136,42 +88,13 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
         #     data=data,
         # )
         #  (response)
+        
         return json.loads(response[9:])  
     else:
         
-        cookies = {
-       'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
-    'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
-    'ps_n': '1',
-    'ps_l': '1',
-    'c_user': '100068654010842',
-    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1717689769463%2C%22v%22%3A1%7D',
-    'xs': '20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608%3A%3AAcXcTFUn63gJQ5kJTkJ-Fa8zP9K8BwMJ18xC1bCV0w',
-    'fr': '1HDQU7KfGYMggY0zZ.AWWY_W-Ktk9mxPK6cxh0UxgsDcw.BmYffM..AAA.0.0.BmYffM.AWVWHxvNrJs',
-    'wd': '1470x392',
-            }
+        cookies = search_cookie['cookies']['SearchCookie2']['cookies']
 
-        data = {
-      '__aaid': '0',
-    '__user': '100068654010842',
-    '__a': '1',
-    '__req': 't',
-    '__hs': '19880.BP:DEFAULT.2.0..0.0',
-    'dpr': '2',
-    '__ccg': 'EXCELLENT',
-    '__rev': '1014024046',
-    '__s': 't6did2:j0rf5e:oy7gms',
-    '__hsi': '7377450112573883033',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81bo4a4oaEd86a0HU9k2C2218waG5E6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4qxa7o-3qazo8U3ywbLwrU6Ci2G0z85C1Iwqo1uo7u2-2K',
-    '__csr': '',
-    'fb_dtsg': 'NAcPpa79etSA9J1fEgnFC-oNjwHWbk879WCIqB3tCArphfpS-USQeAw:20:1717689763',
-    'jazoest': '25360',
-    'lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
-    '__spin_r': '1014024046',
-    '__spin_b': 'trunk',
-    '__spin_t': '1717696458',
-    '__jssesw': '1',
-            }
+        data = search_cookie['cookies']['SearchCookie2']['data']
 
         url = f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&forward_cursor={forward_cursor}&{backward_cursor}=&session_id={session_id}&collation_token={collation_token}&count=30&active_status=all&ad_type=all&countries[0]={countary}&media_type=all&search_type=keyword_unordered'
         # url = f'https://www.facebook.com/ads/library/async/search_ads/?q={querry}&verify=21543e81&forward_cursor={forward_cursor}&backward_cursor={backward_cursor}&session_id={session_id}&collation_token={collation_token}&count=30&active_status={ad_status_type}&ad_type={ad_type}&countries[0]={countary}&start_date[min]={start_date}&start_date[max]={end_date}&media_type={media_type}&content_languages[0]={content_languages}&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=keyword_unordered'
@@ -192,48 +115,16 @@ async def epoch_to_timestamp(epoch_time):
         return f"Error: {e}"
 
 async def viewad(session, adArchiveID, pageID, countary):
-    cookies = {
-    'sb': 'jMUbZpAnpJIEGIzQ7YKsNeWh',
-    'datr': 'jMUbZmw50f4H67U3Cb9MZmfu',
-    'ps_n': '1',
-    'ps_l': '1',
-    'c_user': '100068654010842',
-    'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1717689769463%2C%22v%22%3A1%7D',
-    'xs': '20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608%3A%3AAcXcTFUn63gJQ5kJTkJ-Fa8zP9K8BwMJ18xC1bCV0w',
-    'fr': '1HDQU7KfGYMggY0zZ.AWWY_W-Ktk9mxPK6cxh0UxgsDcw.BmYffM..AAA.0.0.BmYffM.AWVWHxvNrJs',
-    'wd': '1470x392',
-    }
-
-    headers = {
-   'accept': '*/*',
-    'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,hi;q=0.7,fr;q=0.6,gu;q=0.5,de;q=0.4',
-    'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'sb=jMUbZpAnpJIEGIzQ7YKsNeWh; datr=jMUbZmw50f4H67U3Cb9MZmfu; ps_n=1; ps_l=1; c_user=100068654010842; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1717689769463%2C%22v%22%3A1%7D; xs=20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608%3A%3AAcXcTFUn63gJQ5kJTkJ-Fa8zP9K8BwMJ18xC1bCV0w; fr=1HDQU7KfGYMggY0zZ.AWWY_W-Ktk9mxPK6cxh0UxgsDcw.BmYffM..AAA.0.0.BmYffM.AWVWHxvNrJs; wd=1470x392',
-    'dnt': '1',
-    'origin': 'https://www.facebook.com',
-    'priority': 'u=1, i',
-    'referer': 'https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=NL&q=korting&search_type=keyword_unordered&media_type=all',
-    'sec-ch-prefers-color-scheme': 'dark',
-    'sec-ch-ua': '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
-    'sec-ch-ua-full-version-list': '"Google Chrome";v="125.0.6422.142", "Chromium";v="125.0.6422.142", "Not.A/Brand";v="24.0.0.0"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-model': '""',
-    'sec-ch-ua-platform': '"macOS"',
-    'sec-ch-ua-platform-version': '"14.5.0"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
-    'x-asbd-id': '129477',
-    'x-fb-friendly-name': 'AdLibraryAdDetailsV2Query',
-    'x-fb-lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
-    }
+    client = connect_db()
+    search_cookie = client['Master']['cookies'].find_one()
+    client.close()
+    headers = search_cookie['cookies']['viewad']['headers']
     
     variables = {
         "adArchiveID": adArchiveID,
         "pageID": pageID,
         "country": countary,
-        "sessionID": "f720b74f-9414-4fcf-a0cb-331eef7de9f5",
+        "sessionID": search_cookie['sessionID'],
         "source": None,
         "isAdNonPolitical": True,
         "isAdNotAAAEligible": False,
@@ -241,38 +132,42 @@ async def viewad(session, adArchiveID, pageID, countary):
 
     # Convert variables to JSON string
     variables_json = json.dumps(variables)
-    data = {
-    'av': '100068654010842',
-    '__aaid': '0',
-    '__user': '100068654010842',
-    '__a': '1',
-    '__req': '1i',
-    '__hs': '19880.BP:DEFAULT.2.0..0.0',
-    'dpr': '2',
-    '__ccg': 'EXCELLENT',
-    '__rev': '1014024046',
-    '__s': 'v0679i:j0rf5e:oy7gms',
-    '__hsi': '7377450112573883033',
-    '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81bo4a4oaEd86a0HU9k2C2218waG5E6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4qxa7o-3qazo8U3ywbLwrU6Ci2G0z85C1Iwqo1uo7u2-2K',
-    '__csr': '',
-    'fb_dtsg': 'NAcPpa79etSA9J1fEgnFC-oNjwHWbk879WCIqB3tCArphfpS-USQeAw:20:1717689763',
-    'jazoest': '25360',
-    'lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
-    '__spin_r': '1014024046',
-    '__spin_b': 'trunk',
-    '__spin_t': '1717696458',
-    '__jssesw': '1',
-    'fb_api_caller_class': 'RelayModern',
-    'fb_api_req_friendly_name': 'AdLibraryAdDetailsV2Query',
-        'variables':variables_json, 
-        'server_timestamps': 'true',
-        'doc_id': '6635716889819821',
+
+    # data = {
+    # 'av': '100068654010842',
+    # '__aaid': '0',
+    # '__user': '100068654010842',
+    # '__a': '1',
+    # '__req': '1i',
+    # '__hs': '19880.BP:DEFAULT.2.0..0.0',
+    # 'dpr': '2',
+    # '__ccg': 'EXCELLENT',
+    # '__rev': '1014024046',
+    # '__s': 'v0679i:j0rf5e:oy7gms',
+    # '__hsi': '7377450112573883033',
+    # '__dyn': '7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81bo4a4oaEd86a0HU9k2C2218waG5E6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4qxa7o-3qazo8U3ywbLwrU6Ci2G0z85C1Iwqo1uo7u2-2K',
+    # '__csr': '',
+    # 'fb_dtsg': 'NAcPpa79etSA9J1fEgnFC-oNjwHWbk879WCIqB3tCArphfpS-USQeAw:20:1717689763',
+    # 'jazoest': '25360',
+    # 'lsd': 'RdO5-cnrr9p-uAa6P8AEUR',
+    # '__spin_r': '1014024046',
+    # '__spin_b': 'trunk',
+    # '__spin_t': '1717696458',
+    # '__jssesw': '1',
+    # 'fb_api_caller_class': 'RelayModern',
+    # 'fb_api_req_friendly_name': 'AdLibraryAdDetailsV2Query',
+    #     'variables':variables_json, 
+    #     'server_timestamps': 'true',
+    #     'doc_id': '6635716889819821',
         
-    }
+    # }
+
+    data = search_cookie['cookies']['viewad']['data']
+    data['variables'] = variables_json
     response = await fetch(session, 'https://www.facebook.com/api/graphql/', headers=headers, cookies=cookies, data=data)
     # response = requests.post('https://www.facebook.com/api/graphql/', cookies=cookies, headers=headers, data=data)
     # print(">>>>>>>>>>>>>>>", response)
-    
+    # print(response.text)
     return json.loads(response)
 
 
@@ -291,7 +186,6 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
     pageData = {"forward_cursor": forward_cursor, "backward_cursor": backward_cursor, "collation_token": collation_token, "totalAdcount": totalAdcount}
     Adresult = []
     for ads in data['payload']['results']:
-        # print(ad)
         for ad in ads:
             adArchiveID = ad["adArchiveID"]
             pageID = ad["pageID"]
@@ -353,6 +247,7 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
                         totalreach = 0
                     dataDict ={"pageName": pageName, "currentpageLike": currentpageLike, "pageProfileUrl": pageProfileUrl, 'description' : description ,"adcreativeId": adcreativeId,'adArchiveID' : adArchiveID , 'pageId': pageID, "CallToActionButton": CallToActionButton, "linkUrl": linkUrl, "adUrl": adUrl, "isActive": isActive,'TotalReach': totalreach ,"start_date": start_date, "end_date": end_date, "numberOfActiveDay": numberOfActiveDay}
                     Adresult.append(dataDict)
+
   
     return {'results': Adresult, 'pageData': pageData}
 
@@ -367,10 +262,10 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
 async def read_item(country, page , querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms, totalFlag):
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
         data = await getPageAds(session,page, country , querry, filtterStart_date,  filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages , publisher_platforms, totalFlag)
+        print(data)
         return data
     
 async def GetTotalRow(data):
-    print(data)
     countary = data['country']
     querry = data['querry']
     filtterStart_date = data['filtterStart_date']
@@ -391,6 +286,7 @@ async def GetTotalRow(data):
     publisher_platforms = data['publisher_platforms']
     page = data['page']
     data =  await read_item(countary, page, querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms,True)
+    print(data)
     row = data['pageData']['totalAdcount']
     return row
 

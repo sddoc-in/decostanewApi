@@ -1,0 +1,34 @@
+{
+  "cookies": {
+    "sb": "jMUbZpAnpJIEGIzQ7YKsNeWh",
+    "datr": "jMUbZmw50f4H67U3Cb9MZmfu",
+    "ps_n": "1",
+    "ps_l": "1",
+    "c_user": "100068654010842",
+    "wd": "1470x392",
+    "xs": "20%3A2lTBjwCwdUu7_Q%3A2%3A1717689763%3A-1%3A7608%3A%3AAcWI5NGQCbUL8Mf8NHYHIFRE50R4B9LibM-s6gm9FQ",
+    "fr": "1HqLGTT5yCJIXyWJR.AWV0gfWOiYAwfaCzvZZU24o1fR8.BmdKVB..AAA.0.0.BmdKVB.AWUIrPb80Nc"
+  },
+ 
+  "data": {
+    "__aaid": "0",
+    "__user": "100068654010842",
+    "__a": "1",
+    "__req": "1v",
+    "__hs": "19894.BP:DEFAULT.2.0..0.0",
+    "dpr": "2",
+    "__ccg": "GOOD",
+    "__rev": "1014360233",
+    "__s": "ijuvl8:n1bo0f:hzi966",
+    "__hsi": "7382707388815764252",
+    "__dyn": "7xeUmxa3-Q8zo5ObwKBAgc9o9E6u5U4e1FxebzEdF8ixy7EiwvoWdwJwCwfW7oqx60Vo1upEK12wvk1bwbG78b87C2m3K2y11wBz81bo4a4oaEd86a0HU9k2C2218waG5E6i588Egz898mwkE-U6-3e4Ueo2sxOXwJwKwHxaaws8nwhE2Lxiaw4qxa7o-3qazo8U3ywbLwrU6Ci2G0z85C1Iwqo1uo7u2-2K",
+    "__csr": "",
+    "fb_dtsg": "NAcPrIBu2p4jP6mzD_S3xXR4rCG6b3ksXPVXe1vASMQC_E-3noJ-Csw:20:1717689763",
+    "jazoest": "25326",
+    "lsd": "2XKylseApdIRJ46ONK_P1E",
+    "__spin_r": "1014360233",
+    "__spin_b": "trunk",
+    "__spin_t": "1718920513",
+    "__jssesw": "2"
+  }
+}
