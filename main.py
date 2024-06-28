@@ -7,6 +7,11 @@ import aiohttp , asyncio, json
 import time, logging
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+import random
+
+async def random_delay(min_seconds, max_seconds):
+    delay_duration = random.randint(min_seconds, max_seconds)
+    await asyncio.sleep(delay_duration)
 
 def connect_db():
     # uri = "mongodb+srv://deepak:facebook1ads@cluster0.y7i2s57.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
@@ -178,7 +183,6 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
         data = await searchAds(session, page,countary ,querry, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, filtterEnd_date, filtterEnd_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms, totalFlag)
         
     except Exception as e:
-        print(e)
         return {"error": f"Error: {e}"}
     forward_cursor = data['payload']['forwardCursor']
     backward_cursor = data['payload']['backwardCursor']
@@ -195,7 +199,6 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
             numberOfActiveDay = (end_date - start_date)//86400
             start_date = await epoch_to_timestamp(start_date)
             end_date = await epoch_to_timestamp(end_date)
-            print(ad)
             if filtterStart_date <= start_date <= filtterEnd_date or filtterStart_date <= end_date <= filtterEnd_date:
                 tempActive = False
                 # print(ad["isActive"])
@@ -207,7 +210,6 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
                     tempActive = True
                 if tempActive == False:
                     continue
-                print(ad)
                 if tempActive:
                     isActive = ad["isActive"]
                     pageName = ad["pageName"]
@@ -245,6 +247,7 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
                     # print(adsdata['data']['ad_library_main']['ad_details']['aaa_info'])
                     try:
                         totalreach = adsdata['data']['ad_library_main']['ad_details']['aaa_info']['eu_total_reach']
+                        await random_delay(1, 3)
                     except:
                         totalreach = 0
 
@@ -252,7 +255,7 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
                     
                     Adresult.append(dataDict)
 
-  
+    
     return {'results': Adresult, 'pageData': pageData}
 
 
@@ -330,6 +333,7 @@ async def SaveDataToDB(data, row, SearchID ):
                 result['created_at'] = int(time.time())
                 collection.insert_one(result)
                 print(result)
+            await random_delay(1, 3)
             client.close()
             
             
@@ -362,7 +366,6 @@ async def getdata(background_tasks: BackgroundTasks, SearchID : str = Query(None
             background_tasks.add_task(SaveDataToDB, data, row, SearchID)
             return {"status": "success"}
         except Exception as e:
-            print(e)
             return {"error": f"Error: {e}"}
     
 if __name__ == '__main__':
