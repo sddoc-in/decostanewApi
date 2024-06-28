@@ -40,6 +40,8 @@ origins = [
     "https://ui.sddoc.in",
     "http://facebook.sddoc.in",
     "http://facebook.sddoc.in/",
+    "https://facebook.sddoc.in/",
+    "https://facebook.sddoc.in",
     "https://ui.sddoc.in/",
     "http://localhost:3000",
     "http://localhost:3000/",
