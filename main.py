@@ -21,7 +21,7 @@ def connect_db():
         # print("Pinged your deployment. You successfully connected to MongoDB!")
         return client
     except Exception as e:
-        print(e)
+
         return None
 
 
@@ -58,7 +58,7 @@ async def searchAds(session, page, countary,querry, forward_cursor, backward_cur
     search_cookie = client['Master']['cookies'].find_one()
     client.close()
     session_id = search_cookie['cookies']['sessionID']
-    print(session_id)
+
     cookies = search_cookie['cookies']['SearchCookie1']['cookies']
 
 
@@ -178,6 +178,7 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
         data = await searchAds(session, page,countary ,querry, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, filtterEnd_date, filtterEnd_date, ad_status_type, ad_type, media_type, content_languages , publisher_platforms, totalFlag)
         
     except Exception as e:
+        print(e)
         return {"error": f"Error: {e}"}
     forward_cursor = data['payload']['forwardCursor']
     backward_cursor = data['payload']['backwardCursor']
@@ -194,7 +195,7 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
             numberOfActiveDay = (end_date - start_date)//86400
             start_date = await epoch_to_timestamp(start_date)
             end_date = await epoch_to_timestamp(end_date)
-        
+            print(ad)
             if filtterStart_date <= start_date <= filtterEnd_date or filtterStart_date <= end_date <= filtterEnd_date:
                 tempActive = False
                 # print(ad["isActive"])
@@ -206,6 +207,7 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
                     tempActive = True
                 if tempActive == False:
                     continue
+                print(ad)
                 if tempActive:
                     isActive = ad["isActive"]
                     pageName = ad["pageName"]
@@ -245,7 +247,9 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
                         totalreach = adsdata['data']['ad_library_main']['ad_details']['aaa_info']['eu_total_reach']
                     except:
                         totalreach = 0
+
                     dataDict ={"pageName": pageName, "currentpageLike": currentpageLike, "pageProfileUrl": pageProfileUrl, 'description' : description ,"adcreativeId": adcreativeId,'adArchiveID' : adArchiveID , 'pageId': pageID, "CallToActionButton": CallToActionButton, "linkUrl": linkUrl, "adUrl": adUrl, "isActive": isActive,'TotalReach': totalreach ,"start_date": start_date, "end_date": end_date, "numberOfActiveDay": numberOfActiveDay}
+                    
                     Adresult.append(dataDict)
 
   
@@ -262,7 +266,6 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
 async def read_item(country, page , querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms, totalFlag):
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
         data = await getPageAds(session,page, country , querry, filtterStart_date,  filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages , publisher_platforms, totalFlag)
-        print(data)
         return data
     
 async def GetTotalRow(data):
@@ -286,7 +289,6 @@ async def GetTotalRow(data):
     publisher_platforms = data['publisher_platforms']
     page = data['page']
     data =  await read_item(countary, page, querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms,True)
-    print(data)
     row = data['pageData']['totalAdcount']
     return row
 
@@ -311,7 +313,6 @@ async def SaveDataToDB(data, row, SearchID ):
     content_languages = data['content_languages']
     publisher_platforms = data['publisher_platforms']
     page = data['page']
-    # print(row)
     for i in range(1, row):
         async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
             
@@ -319,19 +320,19 @@ async def SaveDataToDB(data, row, SearchID ):
             Nextbackward_cursor = data['pageData']['backward_cursor']
             Nextforward_cursor = data['pageData']['forward_cursor']
             Nextcollation_token = data['pageData']['collation_token']
+            client = connect_db()
             for result in data['results']:
-                client = connect_db()
                 collection = client['Master']['results']
                 searchCollection = client['Master']['search']
                 searchCollection.update_one({"searchId": SearchID}, {"$inc": {"status": 1}})
+                
                 result['SearchUid'] = SearchID
                 result['created_at'] = int(time.time())
                 collection.insert_one(result)
-                # print(result)
-                client.close()
+                print(result)
+            client.close()
             
             
-
 @app.get("/total", response_class=JSONResponse)
 async def resultRecord(SearchID : str = Query(None)):
     if SearchID:
@@ -355,11 +356,13 @@ async def getdata(background_tasks: BackgroundTasks, SearchID : str = Query(None
         db = client['Master']
         collection = db['search']
         data = collection.find_one({"searchId": SearchID})
+        client.close()
         row = await GetTotalRow(data)
         try:
             background_tasks.add_task(SaveDataToDB, data, row, SearchID)
             return {"status": "success"}
         except Exception as e:
+            print(e)
             return {"error": f"Error: {e}"}
     
 if __name__ == '__main__':
