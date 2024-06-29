@@ -8,7 +8,9 @@ import time, logging
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import random
-
+from util import send_mail
+load_dotenv()
+import os
 async def random_delay(min_seconds, max_seconds):
     delay_duration = random.randint(min_seconds, max_seconds)
     await asyncio.sleep(delay_duration)
@@ -262,11 +264,7 @@ async def getPageAds(session, page, countary,querry,filtterStart_date, filtterEn
 
 
 
-# @app.get("/ads", response_class=JSONResponse)
-# async def read_item(country:str = Query(...), page: int = Query(..., description="Minimum page number"), querry: str = Query(..., description="Querry"), filtterStart_date: datetime = Query(None), filtterEnd_date: datetime = Query(None), Nextforward_cursor: str = Query(None), Nextbackward_cursor: str = Query(None), Nextcollation_token: str = Query(None) , ad_status_type: str = Query(...), ad_type: str = Query(...), media_type: str = Query(...), content_languages: str = Query(None), publisher_platforms: str = Query(None)):
-#     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
-#         data = await getPageAds(session,page, country , querry, filtterStart_date,  filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages , publisher_platforms)
-#         return data
+
     
 async def read_item(country, page , querry, filtterStart_date, filtterEnd_date, Nextforward_cursor, Nextbackward_cursor, Nextcollation_token, ad_status_type, ad_type, media_type, content_languages, publisher_platforms, totalFlag):
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
@@ -330,6 +328,10 @@ async def SaveDataToDB(data, row, SearchID ):
                 collection = client['Master']['results']
                 searchCollection = client['Master']['search']
                 searchCollection.update_one({"searchId": SearchID}, {"$inc": {"status": 1}})
+                current_status= searchCollection.find_one({"searchId": SearchID})
+                if current_status['currentStatus'] == 2:
+                    client.close()
+                    return
                 
                 result['SearchUid'] = SearchID
                 result['created_at'] = int(time.time())
@@ -350,6 +352,7 @@ async def resultRecord(SearchID : str = Query(None)):
         try:
             row = await GetTotalRow(data)
         except Exception as e:
+            send_mail(os.getenv("recipient_email"), f"Error: {e}")
             return {"error": f"Error: {e}"}
         return {"total": row}
     else:
@@ -368,6 +371,7 @@ async def getdata(background_tasks: BackgroundTasks, SearchID : str = Query(None
             background_tasks.add_task(SaveDataToDB, data, row, SearchID)
             return {"status": "success"}
         except Exception as e:
+            send_mail(os.getenv("recipient_email"), f"Error: {e}")
             return {"error": f"Error: {e}"}
     
 if __name__ == '__main__':
